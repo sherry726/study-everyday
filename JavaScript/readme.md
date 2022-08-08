@@ -25,6 +25,39 @@ console.log(Number(12.8).toFixed(2));
 
 8、Number()
 
+9、数组归并方法：reduce()/reduceRight()
+
+10、Javascript与ECMAScript的关系
+ECMAScript是Javascript的规范和约定，而JavaScript实现了ECMAScript
+
+11、let和var的差异
+（1）let具有块级作用域(即存在临时性死区)；而var声明的变量只能是全局或者整个函数块的
+（2）let不能重复申明变量
+（3）let不具有变量提升功能
+
+
+12、数据驱动、数据优先的思想
+
+
+13、数组重排序方法：reverse()/sort()
+sort()会影响原始数据,可以使用深拷贝JSON.parse(JSON.stringify(data))
+
+14、filter()
+不会影响原始数据
+
+15、Nodelist和htmlcollection的区别
+Nodelist可以直接使用forEach()
+
+16、input的checkbox动态绑定checked
+  <input type="checkbox" ${item.checked ? 'checked' :''} />
+
+17、事件委托
+
+
+
+
+
+
 
 
 

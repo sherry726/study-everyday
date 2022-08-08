@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css" />
+</head>
+
+<body>
+    <section id="wrap">
+        <h2 class="title">百度音乐榜单</h2>
+        <ul id="list">
+            <li>
+                <input type="checkbox" />
+                <span>第一条信息</span>
+                <a href="javascript:;" class="collect">收藏</a>
+                <a href="javascript:;" class="cancelCollect">取消收藏</a>
+                <a href="javascript:;" class="remove">删除</a>
+            </li>
+
+        </ul>
+        <footer class="footer">
+            <label><input type="checkbox" id="checkAll" />全选/全不选</label>
+            <a href="javascript:;" id="remove">删除</a>
+            <input type="text" id="newInfo" />
+            <a href="javascript:;" id="add">添加</a>
+        </footer>
+    </section>
+    <script>
+        let data = [
+            {
+                id: 1,
+                title: "残酷月光 - 费启鸣",
+                checked: false,
+                collect: true
+            }, {
+                id: 2,
+                title: "兄弟 - 艾热",
+                checked: true,
+                collect: false
+            }, {
+                id: 3,
+                title: "毕生 - 夏增祥",
+                checked: true,
+                collect: true
+            }, {
+                id: 4,
+                title: "公子向北去 - 李春花",
+                checked: false,
+                collect: false
+            }, {
+                id: 5,
+                title: "战场 - 沙漠五子",
+                checked: true,
+                collect: false //是否收藏 true 收藏 false 没有收藏
+            }
+        ];
+
+        // 数据驱动；数据优先；
+        function render(data) {
+            let ul = document.querySelector('#list');
+            ul.innerHTML = '';
+            data.forEach(item => {
+                let li = document.createElement('li');
+                li.innerHTML = `
+                    <input type="checkbox" ${item.checked ? 'checked' : ''} />
+                    <span>${item.title}</span>
+                    ${item.collect ? '<a href="javascript:;" class="cancelCollect">取消收藏</a>' : '<a href="javascript:;" class="collect">收藏</a>'}
+                    <a href="javascript:;" class="remove">删除</a>
+                `;
+                ul.appendChild(li);
+            })
+            //判断全选是否选中
+            let isSelectedAll = data.every(item=>item.checked);
+            document.querySelector('#checkAll').checked = isSelectedAll;
+            addEvent();
+        }
+        render(data);
+
+        //重新渲染之后，没有事件绑定，故将以下操作封装为1个方法，在每次渲染之后，都调用一下以重新绑定事件
+        function addEvent() {
+            let lis = document.querySelectorAll('li');
+            lis.forEach((li, index) => {
+                //取消收藏
+                let cancelCollect = li.querySelector('.cancelCollect');
+                cancelCollect && (cancelCollect.onclick = function () {
+                    data[index].collect = false;
+                    render(data);
+                })
+
+
+                //收藏
+                let collect = li.querySelector('.collect');
+                collect && (collect.onclick = function () {
+                    data[index].collect = true;
+                    render(data);
+                })
+
+                //删除
+                let remove = li.querySelector('.remove');
+                remove.onclick = function () {
+                    data.splice(index, 1);
+                    render(data);
+                }
+
+                //选中、取消选中
+                let checkbox = li.querySelector('input');
+                checkbox.onclick = function (e) {
+                    data[index].checked = e.target.checked;
+                    render(data);
+                }
+            })
+        }
+
+        //全选、全不选
+        let checkAll = document.querySelector('#checkAll');
+        checkAll.onclick = function(e){
+            if(e.target.checked){
+                data.forEach(item=>item.checked = true);
+            }else{
+                data.forEach(item=>item.checked = false);
+            }
+            render(data);
+        }
+
+        //批量删除
+        let remove = document.querySelector('#remove');
+        remove.onclick = function(){
+            let newData = data.filter(item=>!item.checked);
+            render(newData);
+        }
+
+        //添加数据
+        let newInput = document.querySelector('#newInfo');
+        let add = document.querySelector('#add');
+        add.onclick = function(){
+            console.log(newInput.value);
+            let title = newInput.value;
+            let newObj = {
+                id: data[data.length -1].id + 1,
+                title,
+                checked: true,
+                collect: false //是否收藏 true 收藏 false 没有收藏
+            };
+            data.push(newObj);
+            render(data);
+        }
+    </script>
+</body>
+
+</html>
