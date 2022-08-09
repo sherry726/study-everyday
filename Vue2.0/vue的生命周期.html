@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue实例生命周期</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+      
+    </div>
+</body>
+<script>
+    Vue.component('ComponentA',{
+        template:`
+            <h6>我是全局的ComponentA</h6>
+        `,
+        beforeCreate () {
+            console.log('beforeCreate-a');
+        },
+        created () {
+            console.log('created-a');
+        },
+        beforeMount () {
+            console.log('beforeMount-a');
+        },
+        mounted(){
+            console.log('mounted-a');
+        },
+        beforeUpdate () {
+            console.log('beforeUpdate-a');
+        },
+        updated () {
+            console.log('updated-a');
+        },
+        beforeDestroy () {
+            console.log('beforeDestroy-a');
+        },
+        destroyed () {
+            console.log('destroyed-a');
+        },
+    })
+    const app = new Vue({
+        el: '#app',
+        template:`
+            <div>
+                <h1>{{msg}}</h1>
+                <ComponentA v-if="isShow"></ComponentA>
+            </div>
+        `,
+        data: {
+            msg:'123',
+            isShow:true
+        },
+        watch: {
+        },
+        computed: {
+        },
+        methods: {
+        },
+        beforeCreate () {
+            console.log('beforeCreate');
+        },
+        created () {
+            console.log('created');
+        },
+        beforeMount () {
+            console.log('beforeMount');
+        },
+        mounted(){
+            console.log('mounted');
+        },
+        beforeUpdate () {
+            console.log('beforeUpdate');
+        },
+        updated () {
+            console.log('updated');
+        },
+        beforeDestroy () {
+            console.log('beforeDestroy');
+        },
+        destroyed () {
+            console.log('destroyed');
+        },
+    })
+</script>
+
+</html>

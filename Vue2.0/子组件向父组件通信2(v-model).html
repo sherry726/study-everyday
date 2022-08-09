@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>子组件向父组件通信----v-model</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    Vue.component('ComponentA', {
+        props:{
+            value:''
+        },
+        data() {
+            return {
+                title: '我是组件ComponetA',
+                count:0,
+            }
+        },
+        template: `
+            <div>
+                {{ title }} -----{{ count }}
+                <button @click="handleClick">Add</button>
+            </div>
+        `,
+        methods: {
+            handleClick() {
+                this.count++;
+                this.$emit('input',this.count);
+            }
+        },
+    })
+    const app = new Vue({
+        el: '#app',
+        data: {
+            msg: '888',
+            number:10,
+        },
+        template: `
+            <div>
+                <ComponentA v-model="number"></ComponentA>
+                <h2>这是父组件接收的count值：{{ number }}</h2>
+            </div>
+        `,
+    })
+
+  
+</script>
+
+</html>
