@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chrome浏览器对JS的调试方法</title>
+    <script type="text/javascript">
+        function hello1() {
+            var d = new Date();
+            var str = "Hello World - One.\n\nIt is ";
+            alert(str + d.toString());
+        }
+    </script>
+    <script type="text/javascript" src="hello2.js"></script>
+</head>
+
+<body>
+    <input type="button" onclick="hello1()" value="Hello 1" />
+    <input type="button" onclick="hello2('hey hey')" value="Hello 2" />
+</body>
+
+</html>

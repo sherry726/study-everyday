@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>纯css绘制箭头三角</title>
+    <style>
+        /* 需要哪个方向的三角形时只要把其他三个方向的边框颜色设置为透明即可 */
+        .triangle{
+            width: 0px;
+            height: 0px;
+            /* background-color: pink; */
+            border-width: 10px 10px 0px 10px;
+            border-style: solid;
+            /* border-color: red green blue yellow; */
+            border-color: red transparent transparent transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="triangle"></div>
+</body>
+</html>
