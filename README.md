@@ -8,7 +8,7 @@
 
 
 Todolist
-1、面向对象课看完(b、原型.docx c、理解Javascript原型继承原理.pdf a、JavaScript高级程序设计（第3版）（文字版）.pdf)
+1、面向对象课看完(a、JavaScript高级程序设计（第3版）（文字版）.pdf)
 
 
 

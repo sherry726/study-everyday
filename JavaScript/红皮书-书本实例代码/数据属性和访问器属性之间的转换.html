@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据属性和访问器属性之间的转换</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var book = {
+        _year: 2004,
+        edition: 1
+    };
+    Object.defineProperty(book, 'year', {    //访问器属性
+        configurable:true,  //可以在访问器属性和数据属性间相互转化的属性其configurable特性值必须为true。
+        enumerable:true,
+        get: function () {
+            return this._year;
+        },
+        set: function (newValue) {
+            if (newValue > 2004) {
+                this._year = newValue;
+                this.edition += newValue - 2004;
+            }
+        }
+    })
+
+    Object.defineProperty(book, 'year', {    //数据数据
+        value:'test666'
+    })
+
+
+    let des = Object.getOwnPropertyDescriptor(book,'year');
+    console.log(des);
+</script>
+
+</html>

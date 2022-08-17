@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据属性和访问器属性之间的转换</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // var person = new Object();
+    // person.name = "Nicholas";
+    // person.age = 29;
+    // person.job = "Software Engineer";
+    // person.sayName = function () {
+    //     console.log(this.name);
+    // }
+
+    // var person = {
+    //     name:"Nicholas",
+    //     age:29,
+    //     job:"Software Engineer",
+    //     sayName:function(){
+    //         console.log(this.name);
+    //     }
+    // }
+    // 'use strict'
+    // var book = {
+    //    _year:2004,
+    //    edition:1
+    // };
+    // Object.defineProperty(book,'year',{
+    // //    get:function(){
+    // //         return this._year;
+    // //    },
+    //    set:function(newValue){
+    //         if(newValue > 2004){
+    //             this._year = newValue;
+    //             this.edition += newValue - 2004;
+    //         }
+    //    }
+    // })
+    // console.log(book.year);
+
+
+    // var book = {
+    //     _year: 2004,
+    //     edition: 1
+    // };
+    // book.__defineGetter__('year', function () {
+    //     return this._year;
+    // });
+    // book.__defineSetter__('year', function (newVal) {
+    //     if (newVal > 2004) {
+    //         this._year = newVal;
+    //         this.edition += newVal - 2004;
+    //     }
+    // })
+    // book.year = 2005;
+    // console.log(book);
+    // console.log(book.edition);
+
+    //可以在访问器属性和数据属性间相互转化的属性其configurable特性值必须为true
+    // var book = {};
+    // Object.defineProperties(book,{
+    //     _year:{
+    //         value:2004
+    //     },
+    //     edition:{
+    //         value:1
+    //     },
+    //     year:{
+    //         get:function(){
+    //             return this._year;
+    //         },
+    //         set:function(newValue){
+    //             if(newValue > 2004){
+    //                 this._year = newValue;
+    //                 this.edition += newValue - 2004;
+    //             }
+    //         }
+    //     }
+    // })
+
+
+    // var book = {
+    //     _year: 2004,
+    //     edition: 1
+    // };
+    // Object.defineProperty(book, 'year', {    //访问器属性
+    //     configurable:true,  //可以在访问器属性和数据属性间相互转化的属性其configurable特性值必须为true。
+    //     enumerable:true,
+    //     get: function () {
+    //         return this._year;
+    //     },
+    //     set: function (newValue) {
+    //         if (newValue > 2004) {
+    //             this._year = newValue;
+    //             this.edition += newValue - 2004;
+    //         }
+    //     }
+    // })
+
+    // var descriptor = Object.getOwnPropertyDescriptor(book,'_year');
+    // console.log(descriptor);  //{configurable:true,enumerable:true,value:true,writable:true}
+
+
+
+    // var book = {};
+    // Object.defineProperties(book, {
+    //     _year: {
+    //         value: 2004,
+    //     },
+    //     edition: {
+    //         value: 1
+    //     },
+    //     year: {
+    //         get: function () {
+    //             return this._year;
+    //         },
+    //         set: function (newValue) {
+    //             if (newValue > 2004) {
+    //                 this._year = newValue;
+    //                 this.edition += newValue - 2004;
+    //             }
+    //         }
+    //     }
+    // });
+    // var descriptor = Object.getOwnPropertyDescriptor(book, "_year");
+    // //console.log(descriptor);    //{configurable: false,enumerable:false,writable:false,value:2004}
+    // console.log(descriptor.value);   //2004
+    // console.log(descriptor.configurable);  //false
+    // console.log(typeof descriptor.get);   //undefined
+    // var descriptor = Object.getOwnPropertyDescriptor(book, "year");
+    // //console.log(descriptor); //{enumerable: false, configurable: false, get: ƒ, set: ƒ}
+    // console.log(descriptor.value);   //undefined
+    // console.log(descriptor.enumerable);  //false
+    // console.log(typeof descriptor.get);   //function
+
+    // let book = {
+    //     year:2004,
+    //     edition:1
+    // }
+
+    // let des = Object.getOwnPropertyDescriptor(book,'year');
+    // console.log(des);
+
+    // function createPerson(name, age, job) {
+    //     var o = new Object();
+    //     o.name = name;
+    //     o.age = age;
+    //     o.job = job;
+    //     o.sayName = function () {
+    //         console.log(this.name);
+    //     };
+    //     return o;
+    // }
+
+    // var person1 = createPerson("Nicholas", 29, "Software Engineer");
+    // var person2 = createPerson("Greg", 27, "Doctor");
+
+
+    // console.log(person1.sayName == person2.sayName);
+
+
+    // function Person(name, age, job) {
+    //     this.name = name;
+    //     this.age = age;
+    //     this.job = job;
+    //     // this.sayName = function () {
+    //     //     console.log(this.name);
+    //     // }
+    //     // this.sayName = new Function("console.log(this.name)")
+    //     this.sayName = sayName;
+    // }
+    // function sayName(){
+    //     console.log(this.name)
+    // }
+    // var person1 = new Person("Nicholas", 29, "Software Engineer");
+    // var person2 = new Person("Greg", 27, "Doctor");
+    // person1.sayName();
+    // person2.sayName();
+    // console.log( person1.sayName == person2.sayName);   //true
+
+
+
+    // function Person() {
+    // }
+    // Person.prototype.name = "Nicholas";
+    // Person.prototype.age = 29;
+    // Person.prototype.job = "Software Engineer";
+    // Person.prototype.sayName = function () {
+    //     console.log(this.name);
+    // };
+    // var person1 = new Person();
+    // var person2 = new Person();
+
+    // let des = Object.getOwnPropertyDescriptor(person1,'name');
+    // console.log(des);   //{configurable:true,enumerable:true,writable:true,value:Nicholas}
+
+
+    // let des1 = Object.getOwnPropertyDescriptor(person2,'name');
+    // console.log(des1);   //undefined
+
+
+    // let des3 = Object.getOwnPropertyDescriptor(Person.prototype,'name');
+    // //{value: 'Nicholas', writable: true, enumerable: true, configurable: true}
+    // console.log(des3);
+
+
+    // function Person() {
+    // }
+    // Person.prototype.name = "Nicholas";
+    // Person.prototype.age = 29;
+    // Person.prototype.job = "Software Engineer";
+    // Person.prototype.sayName = function () {
+    //     console.log(this.name);
+    // };
+    // var person1 = new Person();
+    // var person2 = new Person();
+    // console.log(person1.hasOwnProperty("name"));   //fasle
+    // console.log("name" in person1);    //true
+    // person1.name = "Greg";
+    // console.log(person1.name);    //Greg
+    // console.log(person1.hasOwnProperty("name"));   //true
+    // console.log("name" in person1);   //true
+    // console.log(person2.name);   //Nicholas
+    // console.log(person2.hasOwnProperty("name")); //false
+    // console.log("name" in person2);  //true
+    // delete person1.name;
+    // console.log(person1.name);   //Nicholas
+    // console.log(person1.hasOwnProperty("name"));   //false
+    // console.log("name" in person1);   //true
+
+
+    // function hasPrototypeProperty(object, name) {
+    //     return !object.hasOwnProperty(name) && (name in object);
+    // }
+    // function Person() {
+    // }
+    // Person.prototype.name = "Nicholas";
+    // Person.prototype.age = 29;
+    // Person.prototype.job = "Software Engineer";
+    // Person.prototype.sayName = function () {
+    //     console.log(this.name);
+    // };
+    // var person = new Person();
+    // console.log(hasPrototypeProperty(person, "name")); //true
+    // person.name = "Greg";
+    // console.log(hasPrototypeProperty(person, "name")); //false
+
+
+    // var o = {
+    //     toString: function () {
+    //         return "My Object";
+    //     }
+    // };
+    // for (var prop in o) {
+    //     if (prop == "toString") {
+    //         console.log("Found toString"); //在 IE 中不会显示
+    //     }
+    // }
+
+
+
+    // function Person() {
+    // }
+    // Person.prototype.name = "Nicholas";
+    // Person.prototype.age = 29;
+    // Person.prototype.job = "Software Engineer";
+    // Person.prototype.sayName = function () {
+    //     console.log(this.name);
+    // };
+    // var keys = Object.keys(Person.prototype);
+    // console.log(keys); //['name','age','job','sayName']
+    // var p1 = new Person();
+    // p1.name = "Rob";
+    // p1.age = 31;
+    // var p1keys = Object.keys(p1);
+    // console.log(p1keys); //['name','age'],
+    // for (let item in p1) {
+    //     console.log(item);
+    // }
+
+
+    //['constructor','name','age','job','sayName']
+    // console.log(Object.getOwnPropertyNames(Person.prototype));
+
+
+
+    // function Person() {
+    // }
+    // Person.prototype = {
+    //     constructor: Person,
+    //     name: "Nicholas",
+    //     age: 29,
+    //     job: "Software Engineer",
+    //     sayName: function () {
+    //         console.log(this.name);
+    //     }
+    // };
+
+    // // console.log(Person.prototype.constructor);  //ƒ Object() { [native code] }
+    // // console.log(Person.prototype.constructor == Person);  //false
+
+    // Object.defineProperty(Person.prototype, 'constructor', {
+    //     enumerable: false,
+    //     value: Person
+    // });
+    // console.log(Object.keys(Person.prototype));
+
+
+
+    // function Person() {
+    // }
+    // var friend = new Person();
+    // Person.prototype = {
+    //     constructor: Person,
+    //     name: "Nicholas",
+    //     age: 29,
+    //     job: "Software Engineer",
+    //     sayName: function () {
+    //         console.log(this.name);
+    //     }
+    // };
+
+    // friend.sayName(); //
+
+
+    // function Person() {
+    // }
+    // Person.prototype = {
+    //     constructor: Person,
+    //     name: "Nicholas",
+    //     age: 29,
+    //     job: "Software Engineer",
+    //     friends: ["Shelby", "Court"],
+    //     sayName: function () {
+    //         console.log(this.name);
+    //     }
+    // };
+    // var person1 = new Person();
+    // var person2 = new Person();
+    // person1.friends.push("Van");
+    // console.log(person1.friends); //"Shelby,Court,Van"
+    // console.log(person2.friends); //"Shelby,Court,Van"
+    // console.log(person1.friends === person2.friends); //true
+
+
+
+    // function Person(name, age, job) {
+    //     this.name = name;
+    //     this.age = age;
+    //     this.job = job;
+    //     this.friends = ["Shelby", "Court"];
+    // }
+    // Person.prototype = {
+    //     constructor: Person,
+    //     sayName: function () {
+    //         console.log(this.name);
+    //     }
+    // }
+    // var person1 = new Person("Nicholas", 29, "Software Engineer");
+    // var person2 = new Person("Greg", 27, "Doctor");
+    // person1.friends.push("Van");
+    // console.log(person1.friends); //"Shelby,Count,Van"
+    // console.log(person2.friends); //"Shelby,Count"
+    // console.log(person1.friends === person2.friends); //false
+    // console.log(person1.sayName === person2.sayName); //true
+
+
+    function SpecialArray() {
+        //创建数组
+        var values = new Array();
+        //添加值
+        values.push.apply(values, arguments);
+        //添加方法
+        values.toPipedString = function () {
+            return this.join("|");
+        };
+        //返回数组
+        return values;
+    }
+    var colors = new SpecialArray("red", "blue", "green");
+    console.log(colors instanceof SpecialArray);
+    console.log(typeof colors);
+    // console.log(typeof colors);
+    // console.log(colors.length);
+    console.log(colors.toPipedString()); //"red|blue|green"
+
+
+    // function Person(name, age, job) {
+    //     var o = new Object();
+    //     o.name = name;
+    //     o.age = age;
+    //     o.job = job;
+    //     o.sayName = function () {
+    //         console.log(this.name);
+    //     };
+    //     return o;
+    // }
+    // var friend = new Person("Nicholas", 29, "Software Engineer");
+    // console.log(friend);
+    // friend.sayName(); //"Nicholas
+
+
+</script>
+
+</html>

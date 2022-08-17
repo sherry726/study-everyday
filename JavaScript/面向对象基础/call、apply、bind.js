@@ -1,7 +1,7 @@
 function foo(name,age) {
     console.log(this,"姓名是"+name+"年龄是"+age);
 }
-foo('wangqin',24);   //this指向Window
+foo('wangqin',24);   //this指向window
 
 
 let obj = {

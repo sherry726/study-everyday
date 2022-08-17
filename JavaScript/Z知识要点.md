@@ -137,7 +137,44 @@ hasOwnProperty() 方法会返回一个布尔值，指示对象自身属性中是
 21、ES5中传址导致的问题：深拷贝的实现
 
 
+22、Object.defineProperty()
+##Object.defineProperty() 方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性，并返回此对象。
+##此方法接收三个参数：属性所在的对象、属性的名字和一个描述符对象。
+##可以在访问器属性和数据属性间相互转化的属性其configurable特性值必须为true。
 
+23、Object.defineProperties()
+为对象定义多个属性，此方法接收二个参数
+
+24、 Object.getOwnPropertyDescriptor()方法
+可以取得给定属性的描述符。这个方法接收两个参数：属性所在的对象和要读取其描述符的属性名称
+
+25、isPrototypeOf()
+//判断person1的原型对象是否指向Person.prototype
+alert(Person.prototype.isPrototypeOf(person1)); //true
+alert(Person.prototype.isPrototypeOf(person2)); //true
+
+26、Object.getPrototypeOf()：表示获取实例化对象的原型对象
+console.log(Object.getPrototypeOf(person1));   //Person.prototype
+
+27、hasOwnProperty()方法：检测一个属性是存在于实例中，还是存在于原型中,只在给定属性存在于对象实例中时，才会返回true。
+console.log(person1.hasOwnProperty("name"));
+
+28、 instanceof：检测对象类型   
+console.log(obj1 instanceof Person);  //true
+console.log(obj1 instanceof Object);  //true
+
+29、typeof
+
+30、constructor属性：最初是用来标识对象类型
+alert(person1.constructor == Person); //true
+
+31、Object.keys()
+要取得对象上所有可枚举的实例属性，可以使用ECMAScript5的Object.keys()方法。这个方法接收一个对象作为参数，返回一个包含所有可枚举属性的字符串数组
+
+32、 Object.getOwnPropertyNames()方法
+如果你想要得到所有实例属性，无论它是否可枚举，都可以使用 Object.getOwnPropertyNames()方法
+
+PS:Object.keys()和 Object.getOwnPropertyNames()方法都可以用来替代 for-in 循环
 
 
 
