@@ -373,24 +373,25 @@
     // console.log(person1.sayName === person2.sayName); //true
 
 
-    function SpecialArray() {
-        //创建数组
-        var values = new Array();
-        //添加值
-        values.push.apply(values, arguments);
-        //添加方法
-        values.toPipedString = function () {
-            return this.join("|");
-        };
-        //返回数组
-        return values;
-    }
-    var colors = new SpecialArray("red", "blue", "green");
-    console.log(colors instanceof SpecialArray);
-    console.log(typeof colors);
+    // function SpecialArray() {
+    //     //创建数组
+    //     var values = new Array();
+    //     //添加值
+    //     values.push.apply(values, arguments);
+    //     //添加方法
+    //     values.toPipedString = function () {
+    //         return this.join("|");
+    //     };
+    //     //返回数组
+    //     return values;
+    // }
+    // var colors = new SpecialArray("red", "blue", "green");
+    // console.log(colors instanceof SpecialArray);
+    // console.log(colors instanceof Object);
     // console.log(typeof colors);
-    // console.log(colors.length);
-    console.log(colors.toPipedString()); //"red|blue|green"
+    // // console.log(typeof colors);
+    // // console.log(colors.length);
+    // console.log(colors.toPipedString()); //"red|blue|green"
 
 
     // function Person(name, age, job) {
@@ -406,6 +407,23 @@
     // var friend = new Person("Nicholas", 29, "Software Engineer");
     // console.log(friend);
     // friend.sayName(); //"Nicholas
+
+
+
+    // var colors = ["red", "green", "blue"];
+    // var removed = colors.splice(0, 1); 
+    // console.log(colors);    //[ "green", "blue"]
+    // console.log(removed);  //["red"]
+    // removed = colors.splice(1, 0, "yellow", "orange"); 
+    // console.log(colors);  //[ "green", "yellow", "orange","blue"]
+    // console.log(removed);  // []
+    // removed = colors.splice(1, 1, "red", "purple"); 
+    // console.log(colors); //[ "green","red", "purple", "orange","blue"]
+    // console.log(removed);  //["yellow"]
+
+
+
+    
 
 
 </script>

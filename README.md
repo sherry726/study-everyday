@@ -9,6 +9,5 @@
 
 Todolist
 1、面向对象课看完(a、JavaScript高级程序设计（第3版）（文字版）.pdf)
-
-
+2、event事件对象里面，那些计算位置的属性offsetX、clientX、clientY......
 
