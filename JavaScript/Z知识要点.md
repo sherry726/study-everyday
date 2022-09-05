@@ -178,6 +178,10 @@ PS:Object.keys()和 Object.getOwnPropertyNames()方法都可以用来替代 for-
 
 
 
+33、window.onload()与$(fucntion{})的区别？
+
+
+
 
 
 

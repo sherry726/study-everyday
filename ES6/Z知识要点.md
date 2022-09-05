@@ -1,14 +1,12 @@
-##############################
- 箭头函数与普通函数区别
- 解构赋值
- rest参数
- class与prototype区别
- 数据结构set/map/weakset/weakmap
- Reflect及Proxy
- Reflect及Proxy实现vue响应
- 迭代器
- async/await
- generator
- Symbol特性及用途
-
-##############################
+【学习要求】
+ 1、箭头函数与普通函数区别
+ 2、解构赋值
+ 3、rest参数
+ 4、class与prototype区别
+ 5、数据结构set/map/weakset/weakmap
+ 6、Reflect及Proxy
+ 7、Reflect及Proxy实现vue响应
+ 8、迭代器
+ 9、async/await
+ 10、generator
+ 11、Symbol特性及用途
