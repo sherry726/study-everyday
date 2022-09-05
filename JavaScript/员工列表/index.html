@@ -160,10 +160,14 @@
         let ageEles = document.querySelectorAll('.age_sort a');
         ageEles.forEach((item, index) => {
             item.onclick = function () {
+                ageEles.forEach(item=>{
+                    item.classList.remove('active');
+                })
+                this.classList.add('active');
                 let newData = ageSortArrs[index](JSON.parse(JSON.stringify(data)));
                 ageSortIndex = index;
                 let showData = genderSortArrs[genderSortIndex](newData);
-                render(newData);
+                render(showData);
             }
         })
         //性别排序
@@ -171,6 +175,10 @@
         let genderEles = document.querySelectorAll('.gender_show a');
         genderEles.forEach((item,index)=>{
             item.onclick = function(){
+                genderEles.forEach(item=>{
+                    item.classList.remove('active');
+                })
+                this.classList.add('active');
                 let newData = genderSortArrs[index](data);
                 genderSortIndex = index;
                 let showData = ageSortArrs[ageSortIndex](newData);
