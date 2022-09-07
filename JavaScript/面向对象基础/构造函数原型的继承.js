@@ -21,7 +21,7 @@ Son.prototype.fn = function(){
 
 
 let zhangsan  = new Son("张三",20);
-zhangsan.fn();
+zhangsan.fn();   //重写的fn
 
 let zhangyi  = new Dad("张一",20);
-zhangyi.fn();
+zhangyi.fn();   //重写的fn

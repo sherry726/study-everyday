@@ -29,3 +29,5 @@ let zhangsan = Person("张三",20,"喜欢篮球");
 let lisi  = Person("李四",21,"喜欢足球");
 console.log(zhangsan);
 console.log(lisi);
+
+
