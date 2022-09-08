@@ -1,4 +1,15 @@
 import Game from "./game/game.js";
+//装饰者模式
+Function.prototype.DecoratorFn = function(fn){   //fn就是需要增强的方法
+    //this指向调用DecoratorFn函数的对象
+    this();
+    fn();
+}
+function hurt(){
+    console.log('造成100点伤害');
+}
+
+
 let game = new Game();
 // 所有的节点
 let eles = {
@@ -54,6 +65,7 @@ function renderHero(heroes) {
             renderSkills(hero.skills);
             //渲染皮肤
             renderSkins(hero.skins);
+            hero.fire.DecoratorFn(hurt);
         }
     })
 }

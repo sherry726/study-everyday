@@ -14,4 +14,7 @@ export default class Yase extends Hero{
         // this.skills = [new S16610,new S16620,new S16630];
         // this.skins = [new Yase1,new Yase2];
     }
+    fire(){
+        console.log('亚瑟释放技能');
+    }
 }

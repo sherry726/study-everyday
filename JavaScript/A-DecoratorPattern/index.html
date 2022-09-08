@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>装饰者模式</title>
+</head>
+
+<body>
+    <script>
+        class Yase {
+            constructor() {
+                this.name = "亚瑟";
+            }
+            fire() {
+                console.log("释放技能");
+                // console.log("造成100点伤害");  //第0个方法
+            }
+        }
+        // 添加需求: 释放技能 + 要造成100点伤害；
+        // 第1个方法: 继承（扩展新的技能）
+        class MyYase extends Yase {
+            fire() {
+                super.fire();
+                console.log("造成100点伤害");
+            }
+            say() {
+                //使用继承这种方式一般是扩展一些功能，但是在原有功能基础上增强，一般使用装饰者模式
+            }
+        }
+        let newYase = new MyYase();
+        newYase.fire();
+    </script>
+
+
+    <script>
+        // 第2个方法: 装饰者（原本功能基础上增强）----- 使用高阶函数
+        class Luban {
+            constructor() {
+                this.name = "鲁班";
+            }
+            fire() {
+                console.log("释放技能");
+            }
+        }
+
+        const hurt = function () {
+            console.log("造成100点伤害");
+        }
+        //高阶函数：把函数当成参数传入的函数
+        const DecoratorFn = function (fn1, fn2) {
+            return function () {
+                fn1();
+                fn2();
+            }
+        }
+        let newLuban = new Luban();
+        // newLuban.fire();
+        let myFn = DecoratorFn(newLuban.fire,hurt);
+        myFn();
+    </script>
+
+
+<script>
+    // 第2个方法: 装饰者（原本功能基础上增强）----- 使用Function.prototype
+    class Hanxin {
+        constructor() {
+            this.name = "韩信";
+        }
+        fire() {
+            console.log("释放技能66");
+        }
+    }
+
+    const hurt1 = function () {
+        console.log("造成100点伤害66");
+    }
+    //Function
+    Function.prototype.DecoratorFn = function(fn){   //fn就是需要增强的方法
+        //this指向调用DecoratorFn函数的对象
+        this();
+        fn();
+    }
+    let newHanxin = new Hanxin();
+    newHanxin.fire.DecoratorFn(hurt1);
+   
+</script>
+</body>
+
+</html>

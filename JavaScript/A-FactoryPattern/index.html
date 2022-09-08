@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>工厂模式</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //常见的工厂模式
+    /*
+    function Factory(name,age) {
+        let obj = {};
+        obj.name = name;
+        obj.age = age;
+        return obj;
+    }
+    let zhangsan = Factory('张三',10);
+    let lisi = Factory('李四',20);
+    console.log(zhangsan);
+    console.log(lisi);
+    */
+
+
+
+    //以下这种也属于工厂模式
+    class Luban {
+        constructor() {
+            this.name = "鲁班";
+        }
+    }
+    class Yase {
+        constructor() {
+            this.name = "亚瑟";
+        }
+    }
+    function Factory(type) {
+        switch (type) {
+            case 'yase':
+                return new Yase();
+                break;
+            case 'luban':
+                return new Luban();
+                break;
+            default:
+                break;
+        }
+    }
+    let zhangsan = Factory('yase');
+    let lisi = Factory('luban');
+    console.log(zhangsan);
+    console.log(lisi);
+
+
+</script>
+
+</html>

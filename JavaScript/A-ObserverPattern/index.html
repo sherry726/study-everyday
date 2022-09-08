@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自定义事件(观察者模式)</title>
+</head>
+
+<body>
+    <script>
+        function fn1() {
+            console.log("fn1");
+        }
+        function fn2() {
+            console.log("fn2");
+        }
+        //定义1个全局变量，用于保存事件以及函数
+        let handle = {};
+        //添加事件
+        function addEvent(eventName, fn) {
+            if (typeof handle[eventName] === 'undefined') {
+                handle[eventName] = [];
+            }
+            //不允许重复添加事件
+            if (handle[eventName].indexOf(fn) !== -1) {
+                return;
+            } else {
+                handle[eventName].push(fn);
+            }
+        }
+        //触发事件
+        function trigger(eventName) {
+            if (typeof handle[eventName] === 'undefined') {
+                return;
+            }
+            handle[eventName].forEach(fn => {
+                fn();
+            })
+        }
+        //移除自定义事件
+        function removeEvent(eventName, fn) {
+            if (typeof handle[eventName] === 'undefined') {
+                return;
+            }
+            handle[eventName].forEach((fnItem, index) => {
+                if (fn === fnItem) {
+                    handle[eventName].splice(index, 1);
+                }
+            })
+        }
+
+        //绑定自定义事件
+        addEvent('myEvent', fn1);
+        addEvent('myEvent', fn2);
+        addEvent('myEvent', fn2);
+        console.log(handle);
+        //触发自定义事件
+        trigger('myEvent');
+        removeEvent('myEvent', fn2);
+        removeEvent('myEvent',fn1);
+        trigger('myEvent');
+    </script>
+</body>
+
+</html>
