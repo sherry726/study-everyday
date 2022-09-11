@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自己封装的jquery</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background: red;
+            margin: 100px;
+        }
+
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background: blue;
+            margin: 100px;
+        }
+    </style>
+    <script src="./myjq.js"></script>
+</head>
+
+<body>
+    <h1>自己封装的jq</h1>
+    <div class="box">111</div>
+    <div class="box1">222</div>
+    <button class="btn">点击</button>
+</body>
+<script>
+    //1、接收类名 id名  标签名称；
+    //1.1  1个节点
+    // $(".box").click(function () {
+    //     console.log('触发点击事件');
+    // })
+    //1.2  多个节点
+    // $("div").click(function () {
+    //     console.log('触发点击事件');
+    // })
+    //1.1、dom结构加载完成之后执行；
+    // $(function () {
+    //     console.log("ready")
+    // })
+    //1.2、接收js原生的节点；
+    // $(document.querySelector("div")).click(function(){
+    //     console.log("点击了111");
+    // })
+    // $(document.querySelectorAll("div")).click(function () {
+    //     console.log("点击了222");
+    // })
+
+
+    // 2、eq()方法
+    // $("div").eq(1).click(function () {
+    //     console.log("等于1的div被点击了....")
+    // })
+
+
+    // 3、on()方法
+    // 多个节点 绑定多个事件；
+    // $("div").on("mouseover mousedown", function () {
+    //     console.log("鼠标悬浮或按下了....")
+    // })
+
+
+    // 4、css()方法
+    // 1、获取css样式；
+    // let res = $("div").css("background");
+    // console.log(res);
+    // 2、设置样式一；
+    // $("div").css("width", "200px");
+    // 3、设置样式二；
+    // $("div").css({ width: "50px", height: "50px" });
+
+    //链式调用
+    // $(".box1").css({ width: "50px", height: "50px",background:'pink' }).click(function(){
+    //     console.log('链式调用...');
+    // });
+
+
+    //5、end()方法:和eq()对应
+    // $("div").eq(0).css("background", "black").end().click(function () {
+    //     console.log("点击了...");
+    // })
+
+    //6、CSS Hooks
+    // $("div").css("width",'200px');
+    // $("div").css("width",200);
+    // $("div").css("opacity",0.2);
+
+
+    // $.cssHooks['wh'] = {
+    //     get(ele) {
+    //         console.log(ele)
+    //         return window.getComputedStyle(ele, null)['width'] + " " + window.getComputedStyle(ele, null)['height'];
+    //     },
+    //     set(ele, newValue) {
+    //         ele.style['width'] = newValue;
+    //         ele.style['height'] = newValue;
+    //     }
+    // }
+    // $("div").css("wh","30px")
+
+
+    //7、animate()方法
+    $(".btn").click(function () {
+        $("div").animate({ width: "200px" },2000,function(){
+            console.log('动画结束');
+        });
+    })
+</script>
+
+</html>

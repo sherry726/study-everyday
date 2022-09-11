@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background: blue;
+        }
+    </style>
+    <script src="./jquery.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <h1>原生jq</h1>
+    <div class="box2">222</div>
+    <div class="box">111</div>
+    <button class="btn">点击</button>
+</body>
+<script>
+    // 原生js写法；
+    // document.querySelector(".box").onclick = function(){
+    //     console.log("1111");
+    // }
+    // jq写法；-->js框架，基于js封装；
+    // $(".box").click(function(){
+    //     console.log("1111");
+    // })
+
+    // 1.接收类名 id名  标签名称；
+    // $(".box")
+
+    // .click(function(){
+    //     console.log("1111");
+    // })
+
+
+    //2. dom结构加载完成之后执行；
+    // $(function(){
+    //     console.log("ready")
+    // })
+
+    // 3.接收js原生的节点；
+    // $(document.querySelector("div")).click(function(){
+    //     console.log("点击了");
+    // })
+    // console.log( $("div")  );
+    // 选择jq元素；
+    // $("div").eq(1).click(function(){
+    //     console.log("点击")
+    // })
+    // console.log($("div").eq(2n))
+
+    // $("div").click(function(){
+    //     console.log("click")
+    // })
+    // 多个节点 绑定多个事件；
+    // $("div").on("mouseover mousedown",function(){
+    //     console.log("click")
+    // })
+
+    // css 方法；
+    // 1获取css样式；
+    // let res =  $("div").css("background");
+    // console.log(res);
+    // 2设置样式一；
+    // $("div").css("width","200px");
+    // 3设置样式二；
+    // $("div").css({width:"200px",height:"200px"});
+    // $("div").eq(0).css("background","black").end().click(function(){
+    //     console.log("点击了...");
+    // })
+    // $("div").css("width",200);
+    $.cssHooks['wh'] = {
+        get(ele) {
+            console.log(ele)
+            return window.getComputedStyle(ele, null)['width'] + " " + window.getComputedStyle(ele, null)['height'];
+        },
+        set(ele, newValue) {
+            ele.style['width'] = newValue;
+            ele.style['height'] = newValue;
+        }
+    }
+
+
+    // "wh"  可以设置 宽度及高度；
+    // console.log( $("div").css("wh"));
+    // $("div").css("wh","200px")
+
+    $(".btn").click(function () {
+        $("div").animate({ width: "200px" });
+    })
+
+</script>
+
+</html>
