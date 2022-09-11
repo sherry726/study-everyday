@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>继承HTML元素</title>
+</head>
+<body>
+    <!-- is定义自定义元素的名称 -->
+    <img src="#" is="my-img" />   
+</body>
+<script>
+// 继承html元素，这里继承img
+class MyImg extends HTMLImageElement{
+    constructor(){
+        super();
+        setTimeout(()=>{
+            console.log("this的指向》》》",this);
+            this.src = "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.jj20.com%2Fup%2Fallimg%2F4k%2Fs%2F02%2F2109242332225H9-0-lp.jpg&refer=http%3A%2F%2Fimg.jj20.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1665327651&t=370de00b6351ff1384488cb6e4978d48"
+        },1000)
+    }
+}
+customElements.define("my-img",MyImg,{
+    extends:"img"   //extends申明继承自哪个元素
+})
+
+
+</script>
+</html>

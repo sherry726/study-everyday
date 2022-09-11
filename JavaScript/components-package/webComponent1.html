@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自定义独立元素</title>
+</head>
+
+<body>
+    <my-component></my-component>
+</body>
+<script>
+    // console.dir(HTMLElement);    HTMLElement是系统预定义的类
+    // 自定义组件（自定义独立元素)
+    class MyComponet extends HTMLElement {
+        constructor() {
+            super();
+            console.log("this的指向》》》", this);  //<my-component></my-component>
+            this.innerHTML = "<button class='btn'>按钮</button>";
+            document.querySelector('.btn').onclick = function () {
+                alert('点击了...');
+            };
+        }
+    }
+    //customElements.define(自定义元素的名称,元素的配置项);
+    customElements.define("my-component", MyComponet)
+
+
+
+
+
+
+
+
+</script>
+
+</html>

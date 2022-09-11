@@ -1,71 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>test</title>
+    <title>测试</title>
 </head>
-
 <body>
-
+    
+    <script src="./test.js"></script>
+    <script type="module">
+        // import Person from './test.js';
+        // let zs = Person('张三');
+        // let ls = Person('李四');
+        // console.log(zs);
+        // console.log(ls);
+        // Person.instance = {name:'王五'};
+       
+    </script>
 </body>
-<script>
-    let obj = {
-        name: "张三",
-        age: 20,
-        fn: function () {
-            console.log("fn..");
-        },
-        test: undefined,
-        arr: [],
-    }
-    let obj2 = deepCopy(obj);
-    obj2.name = "李四";
-    console.log(obj2);//{name: '李四', age: 20, test: undefined, arr: Array(0), fn: ƒ}
-    console.log(obj);//{name: '张三', age: 20, test: undefined, arr: Array(0), fn: ƒ}
-
-    function deepCopy(obj) {
-        let newObj = Array.isArray(obj) ? [] : {};
-        /*
-        *   for...in的特点：不仅会循环对象自身的属性和方法，同样会循环对象原型以及原型链上的属性和方法；
-        *   但是深拷贝不需要原型和原型链上的属性和方法；
-        */
-        for (let key in obj) {
-            if (obj.hasOwnProperty(key)) {
-                if (typeof obj[key] === "object") {
-                    newObj[key] = deepCopy(obj[key]);
-                } else {
-                    newObj[key] = obj[key];
-                }
-            }
-        }
-        return newObj;
-    }
-
-
-
-
-
-
-    function deepCopy(obj){
-        let newObj = Array.isArray(obj) ? [] : {};
-        for(let key in obj){
-            if(obj.hasOwnProperty(key)){
-                if(typeof obj[key] === 'object'){
-                    newObj[key] = deepCopy(obj[key]);
-                }else{
-                    newObj[key] = obj[key];
-                }
-            }
-        }
-        return newObj;
-    }
-
-
-
-
-</script>
-
 </html>

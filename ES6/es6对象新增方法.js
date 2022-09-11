@@ -14,7 +14,7 @@ let obj2 = {
     d: 4
 };
 let f = null;
-let obj3 = Object.assign({},obj,obj2,{f});
+let obj3 = Object.assign({},obj,obj2,{f});  //若存在相同的，后面的会覆盖前面的
 console.log(obj);
 console.log(obj2);
 console.log(obj3);
