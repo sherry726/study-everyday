@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for-in/for-of</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+    *数组循环时：for-in循环的是key，for-of循环的是value
+    */
+    let arr = ['a','b','c','d'];
+    console.dir(arr);
+    for(let key in arr){
+        console.log(key);     //循环key属性   0,1,2,3
+    }
+
+    for(let val of arr){
+        console.log(val);    //循环value    a,b,c,d
+    }
+
+
+    /*
+    *对象循环时：for-in循环的是key，for-of循环时会报错，for...of只能循环具有迭代器的对象
+    */
+    let obj = {
+        a:1,
+        b:2,
+        c:3
+    }
+    console.dir(obj);
+    for(let key in obj){   
+        console.log(key);   //a,b,c
+    }
+
+    for(let key of obj){   //报错：Uncaught TypeError: obj is not iterable
+        console.log(key);
+    }
+</script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function* fn() {
+        yield new Promise((resolve, reject) => {
+            setTimeout(() => {
+                console.log('a');
+                resolve(1);
+            }, 500)
+        });
+        yield new Promise((resolve, reject) => {
+            setTimeout(() => {
+                console.log('b');
+                resolve(2);
+            }, 500)
+        });
+        yield new Promise((resolve, reject) => {
+            setTimeout(() => {
+                console.log('c'); 
+                resolve(3);
+            }, 500)
+        });
+    }
+    // let f = fn();
+    // for(let fn of f){    //  这种情况就会一起执行了，并没有依次执行
+    //     console.log(fn);
+    // }
+
+    
+
+    function co(fn){
+        let f = fn();
+        next();
+        function next(data){   //data是上一次执行的结果，第一次调用next时，data是undefined
+            let result = f.next();
+            console.log(result);  //{value: Promise, done: false}
+            if(!result.done){
+                result.value.then((info)=>{
+                    console.log(info,data);
+                    next(info);
+                })
+            } 
+        }
+    }
+
+    co(fn);
+
+</script>
+
+</html>

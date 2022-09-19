@@ -7,16 +7,18 @@
     <title>测试</title>
 </head>
 <body>
-    
-    <script src="./test.js"></script>
-    <script type="module">
-        // import Person from './test.js';
-        // let zs = Person('张三');
-        // let ls = Person('李四');
-        // console.log(zs);
-        // console.log(ls);
-        // Person.instance = {name:'王五'};
-       
+    <script>
+        let params = {
+            choosedNumber: 0,
+            userOrderBy:[],
+            dataConditions:[],
+            userConditions:null
+        }
+
+
+        let allDataBoolean = params.userOrderBy.length == 0 && params.dataConditions.length==0 && (params.userConditions == null || params.userConditions == 'undefined') && params.choosedNumber == 0;
+       console.log(allDataBoolean);
+
     </script>
 </body>
 </html>

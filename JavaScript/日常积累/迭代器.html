@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>迭代器</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let obj = {
+        a: 1,
+        b: 2,
+        c: 3
+    }
+    obj[Symbol.iterator] = function(){
+        //迭代协议
+        let values = Object.values(obj);   //[1,2,3]
+        let keys = Object.keys(obj);   //[a,b,c]
+        let index = 0;
+        return {
+            next(){
+                if(index >= values.length){
+                    return {
+                        done:true   //是否循环完成true/false
+                    }
+                }else{
+                    return {
+                        // vaule:values[index++],    //循环过程中的值
+                        //返回key、value值
+                        value:{
+                            key:keys[index],
+                            value:obj[keys[index++]],
+                            // value:values[index++]
+                        },
+
+                        done:false //是否循环完成true/false
+                    }
+                }
+                
+            }
+        }
+    }
+    for(let val of obj){   //报错：Uncaught TypeError: obj is not iterable
+        console.log(val);
+    }
+</script>
+
+</html>
