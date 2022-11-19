@@ -4,14 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>vue引入</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-    
+    <div id="app">
+        <input type="text" v-model.lazy="msg">
+        {{ msg }}
+    </div>
 </body>
 <script>
     //打印的是Vue的一个构造函数
     console.log(Vue);
+    app = new Vue({
+        el:'#app',
+        data:{
+            msg:123
+        }
+    })
 </script>
 </html>

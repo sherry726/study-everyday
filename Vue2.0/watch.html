@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>watch</title>
+  </head>
+  <body>
+    <div id="app">
+      {{msg}}
+
+      <hr />
+
+      {{msg1}} {{msg2}} {{msg3}}
+
+      <hr />
+      {{info.a}} {{info.b}}
+    </div>
+    <script>
+      // 1 对 多的关系
+      // 计算属性 vs watch
+      app = new Vue({
+        el: "#app",
+        data: {
+          msg: "hello world",
+          msg1: "",
+          msg2: "",
+          msg3: "",
+          info: {
+            a: "info.a",
+            b: "info.b",
+          },
+        },
+        watch: {
+          msg: {
+            handler(newValue, oldValue) {
+              console.log(newValue, oldValue);
+
+              this.msg1 = newValue + "1";
+              this.msg2 = newValue + "2";
+              this.msg3 = newValue + "3";
+            },
+            immediate: true,
+          },
+          "info.a": {
+            handler(newValue, oldValue) {
+              console.log(newValue, oldValue);
+            },
+            deep: true,
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
