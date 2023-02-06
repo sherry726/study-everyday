@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- <ul>
+        <li v-for="(val,key,index) in list">
+          {{index}} - {{val.name}} -- {{val.age}}
+        </li>
+      </ul> -->
+      <ul>
+        <li v-for="(item,index) in list" :key="index" v-if="item.age < 30">
+          <!-- {{index}} - {{val.name}} -- {{val.age}} -->
+          {{index}} - {{item.name}}
+        </li>
+      </ul>
+    </div>
+    <script>
+      // v-for
+      // (item) in list
+      // 统一了处理接口
+      // in
+      // key 为了 diff 优化
+      app = new Vue({
+        el: "#app",
+        data: {
+          msg: "hello world",
+          //   list: {
+          //     1: {
+          //       name: "小红",
+          //       age: 18,
+          //     },
+          //     2: {
+          //       name: "小黑",
+          //       age: 28,
+          //     },
+          //   },
+          list: [
+            {
+              name: "小红",
+              age: 18,
+            },
+
+            {
+              name: "小黑",
+              age: 28,
+            },
+            {
+              name: "小宇子",
+              age: 38,
+            },
+          ],
+        },
+      });
+
+      // js
+      // for of for in foreach
+    </script>
+  </body>
+</html>

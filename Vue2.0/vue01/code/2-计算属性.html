@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      {{reverseMsg}}
+      <hr />
+      {{reverseMessage()}}
+      <hr />
+      {{msgNum}}
+    </div>
+    <script>
+      // method 和 computed 与什么区别的？
+      // 1. 清晰的表达
+      // 2. 缓存
+      // 多对1 的关系
+      app = new Vue({
+        el: "#app",
+        data: {
+          msg: "hello world",
+          num: 1,
+        },
+        methods: {
+          reverseMessage() {
+            console.log("123");
+            return this.msg.split("").reverse().join("");
+          },
+        },
+        computed: {
+          reverseMsg() {
+            console.log("222");
+            // 如何写好代码
+            // 1. 表达好代码的意图
+            // 2. 写测试
+            // 3. 减少重复
+            return this.msg.split("").reverse().join("");
+          },
+          msgNum() {
+            return this.msg + this.num;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div v-if="age === 18">花一样的年龄</div>
+      <div v-else-if="age < 18">未成年</div>
+      <div v-else>成年人</div>
+      <div v-show="false">show</div>
+    </div>
+    <script>
+      // v-if
+      // v-show
+      // 控制 css
+
+      // v-if vs v-show
+
+      app = new Vue({
+        el: "#app",
+        data: {
+          msg: "hello world",
+          age: 1,
+        },
+      });
+
+      // js
+      // 新的知识和老的知识进行一个关联
+      // 学习技巧
+    </script>
+  </body>
+</html>

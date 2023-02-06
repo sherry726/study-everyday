@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <title>watch</title>
+    <title>Document</title>
   </head>
   <body>
     <div id="app">
@@ -33,16 +33,6 @@
           },
         },
         watch: {
-          msg: {
-            handler(newValue, oldValue) {
-              console.log(newValue, oldValue);
-
-              this.msg1 = newValue + "1";
-              this.msg2 = newValue + "2";
-              this.msg3 = newValue + "3";
-            },
-            immediate: true,
-          },
           "info.a": {
             handler(newValue, oldValue) {
               console.log(newValue, oldValue);
@@ -51,6 +41,10 @@
           },
         },
       });
+      // js 
+      // if 
+      // else
+      // if else
     </script>
   </body>
 </html>

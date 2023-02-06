@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <li v-for="product in products">
+          {{product.name}} -- {{product.count}}
+          <span v-show="product.count === 0"> 卖没拉</span>
+          <button @click="product.count++">add</button>
+          <input type="text" v-model.number="product.count" />
+        </li>
+      </ul>
+
+      总数： {{totalCount}}
+    </div>
+    <script>
+      app = new Vue({
+        el: "#app",
+        data: {
+          products: [
+            {
+              count: 3,
+              name: "苹果",
+            },
+            {
+              count: 0,
+              name: "香蕉",
+            },
+
+            {
+              count: 1,
+              name: "桃子",
+            },
+          ],
+        },
+        computed: {
+          totalCount() {
+            // js
+            return this.products.reduce((total, item) => {
+              return total + item.count;
+            }, 0);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

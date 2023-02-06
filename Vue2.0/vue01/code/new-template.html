@@ -7,28 +7,12 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="app">
-        <button @click="handleClick1">click</button>
-      <!-- <button @click="handleClick('1',$event)">click</button> -->
-
-    </div>
+    <div id="app"></div>
     <script>
-      // v-on 添加事件
-      // 简写 @
       app = new Vue({
         el: "#app",
         data: {
-          num: 0,
           msg: "hello world",
-        },
-        methods: {
-          handleClick(n, e) {
-            console.log(e);
-            console.log("click");
-          },
-          handleClick1(e){
-            console.log(e);
-          }
         },
       });
     </script>

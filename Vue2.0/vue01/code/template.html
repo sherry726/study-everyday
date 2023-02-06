@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app" :test="test+'123123'">{{msg+"12312312"}}</div>
+    <script>
+      // hello world
+      // view 视图
+      // model 数据模型
+      // mvvm -> m  v vm
+      // native
+      // 1. 把数据和视图进行绑定
+      // 只需要聚焦到数据逻辑上
+
+      // v- 指令
+      // vue -> 简写 -》 :
+      // 文本 -》 {{}}
+      // attribute -》 v-bind -> :
+      // 都支持js 表达式
+      app = new Vue({
+        el: "#app",
+        data: {
+          msg: "hello world",
+          test: "vue10",
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      {{msg}} {{isCheckBox}}
+      <!-- <input type="text" @input="handleInput" /> -->
+      <input type="text" v-model.number="msg" />
+      <input type="checkbox" @change="handleChange" />
+    </div>
+    <script>
+      // v-model
+      // 双向数据流
+      // 它只是语法糖
+      app = new Vue({
+        el: "#app",
+        data: {
+          msg: "",
+          isCheckBox: false,
+        },
+        watch: {
+          msg(newValue, oldValue) {
+            console.log(typeof newValue);
+          },
+        },
+        methods: {
+          handleInput(e) {
+            console.log(e.target.value);
+            this.msg = e.target.value;
+          },
+          handleChange(e) {
+            this.isCheckBox = e.target.checked;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

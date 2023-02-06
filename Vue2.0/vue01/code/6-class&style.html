@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+    <style>
+      .red {
+        color: red;
+      }
+
+      .size {
+        font-size: 50px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- <div :class="classes">color</div> -->
+      <div :style="styleInfo">color</div>
+    </div>
+    <script>
+      app = new Vue({
+        el: "#app",
+        data: {
+          msg: "hello world",
+          //   classes: {
+          //     red: true,
+          //     size: false,
+          //   },
+          styleInfo: [
+            {
+              color: "red",
+            },
+            {
+              fontSize: "50px",
+            },
+          ],
+          //   styleInfo:{
+          //       color:"red",
+          //       fontSize: "50px"
+          //   },
+          classes: [
+            "red",
+            {
+              size: true,
+            },
+          ],
+        },
+      });
+    </script>
+  </body>
+</html>
