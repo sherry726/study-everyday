@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script>
+      Vue.component("ComponentB", {
+        methods: {
+          handleClick() {
+            this.count++;
+          },
+        },
+        data() {
+          return {
+            count: 0,
+          };
+        },
+        beforeCreate() {
+          console.log("bc - b");
+        },
+        created() {
+          console.log("c - b");
+        },
+        beforeMount() {
+          console.log("bm - b");
+        },
+        mounted() {
+          console.log("m - b ");
+        },
+        template: `<div>ComponentB
+        {{count}}
+        <button @click="handleClick">click</button>
+        </div>`,
+      });
+
+      Vue.component("ComponentA", {
+        methods: {
+          handleClick() {
+            this.count++;
+          },
+        },
+        data() {
+          return {
+            count: 0,
+          };
+        },
+        beforeCreate() {
+          console.log("bc - a");
+        },
+        created() {
+          console.log("c - a");
+        },
+        beforeMount() {
+          console.log("bm - a");
+        },
+        beforeDestroy() {
+          console.log("bd - a");
+        },
+        destroyed() {
+          console.log("d - a");
+        },
+        mounted() {
+          console.log("m - a ");
+        },
+        template: `<div>ComponentA
+        {{count}}
+        <ComponentB></ComponentB>
+        <button @click="handleClick">click</button>
+        </div>`,
+      });
+
+      // 局部注册组件
+
+      // beforeCreate 之前
+      // created 之后
+
+      // create
+      // mounted -> 挂载之后 -》元素添加到视图里面了 -》 你可以看见了
+      // update
+      // destroy
+      app = new Vue({
+        el: `#app`,
+        template: `
+        <div>{{msg}}
+            <ComponentA v-if="show"></ComponentA>
+        </div>`,
+        data: {
+          msg: "hello world",
+          show: true,
+        },
+        beforeCreate() {
+          console.log("bc");
+        },
+        created() {
+          console.log("c");
+        },
+        beforeMount() {
+          console.log("bm");
+        },
+        mounted() {
+          console.log("m");
+        },
+        beforeUpdate() {
+          console.log("bu");
+        },
+        updated() {
+          console.log("u");
+        },
+        beforeDestroy() {
+          console.log("bd");
+        },
+        destroyed() {
+          console.log("d");
+        },
+      });
+
+      // function name (a,b) {
+      // }
+    </script>
+  </body>
+</html>

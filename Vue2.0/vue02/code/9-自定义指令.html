@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      // v-show
+      // v-focus
+      Vue.directive("focus", {
+        bind(el, binding) {
+          console.log(el);
+          console.log(binding);
+          el.focus();
+          console.log("bind");
+        },
+        inserted(el) {
+          console.log("inserted");
+          el.focus();
+        },
+      });
+
+      Vue.component("ComponentA", {
+        methods: {
+          handleClick() {
+            this.count++;
+          },
+        },
+        data() {
+          return {
+            count: 0,
+          };
+        },
+        template: `<div>ComponentA
+            <input type="text" v-focus.a.b="123 + 123"></input>
+        </div>`,
+      });
+
+      app = new Vue({
+        el: `#app`,
+        template: `
+        <div>{{msg}}
+            <ComponentA></ComponentA>
+        </div>`,
+        data: {
+          msg: "hello world",
+        },
+      });
+    </script>
+  </body>
+</html>

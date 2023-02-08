@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script>
+      // vue 去实现组件呢？
+      // 组件 就和 我们平时写的 js 里面的 函数一样
+      // 1. 封装性
+      // 2. 复用性
+      // 3. 单一职责
+      // 新知识和老知识做对比 - 学习方法论
+
+      //   function name (arguments) {
+      //   }
+      // 注册组件
+      // 全局注册组件
+      // 注意点
+      // 1. 必须有根节点
+      // 2. data 必须是个函数
+      const ComponentB = {
+        template: `<div>ComponentB</div>`,
+      };
+
+      Vue.component("ComponentA", {
+        components: {
+          ComponentB,
+        },
+        methods: {
+          handleClick() {
+            this.count++;
+          },
+        },
+        data() {
+          return {
+            count: 0,
+          };
+        },
+        template: `<div>ComponentA
+        {{count}}
+        <button @click="handleClick">click</button>
+            <ComponentB></ComponentB>
+        </div>`,
+      });
+
+      // 局部注册组件
+
+      app = new Vue({
+        el: `#app`,
+        template: `
+        <div>{{msg}}
+            <ComponentA></ComponentA>
+            <ComponentA></ComponentA>
+        </div>`,
+        data: {
+          msg: "hello world",
+        },
+      });
+    </script>
+  </body>
+</html>

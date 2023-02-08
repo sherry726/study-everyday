@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      // input
+      // function name (title:string="title") {
+      //  return {}
+      // }
+      // 对比我们的函数
+      // return output
+
+      Vue.component("ComponentA", {
+        props: {
+          title: {
+            type: String,
+            default: "title -A",
+            required: true,
+          },
+          student: {
+            type: Object,
+            validator(val) {
+              //   console.log(val);
+              return val.name === "xiaohong";
+              //   return true;
+            },
+          },
+        },
+        methods: {
+          handleClick() {
+            this.count++;
+          },
+        },
+        data() {
+          return {
+            count: 0,
+          };
+        },
+        template: `<div>ComponentA
+        {{count}}
+        {{title}}
+        <button @click="handleClick">click</button>
+        </div>`,
+      });
+
+      app = new Vue({
+        el: `#app`,
+        template: `
+        <div>{{msg}}
+            <ComponentA title="123" :student="{name:'xiaohei'}"></ComponentA>
+        </div>`,
+        data: {
+          msg: "hello world",
+        },
+      });
+    </script>
+  </body>
+</html>

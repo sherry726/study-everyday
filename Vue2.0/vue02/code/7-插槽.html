@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      Vue.component("ComponentA", {
+        methods: {
+          handleClick() {
+            this.count++;
+          },
+        },
+        data() {
+          return {
+            count: 0,
+            childTitle: "childTitle111",
+          };
+        },
+        template: `<div>
+          ComponentA
+        {{count}}
+        <p>
+        <slot name="header" :count="count" :title="childTitle">  </slot>
+          
+          </p>
+
+        <p>
+        <slot name="default">  </slot>
+          </p>
+
+        <p>
+        <slot name="footer">  </slot>
+          </p>
+        <button @click="handleClick">click</button>
+        </div>`,
+      });
+
+      app = new Vue({
+        el: `#app`,
+        template: `
+        <div>{{msg}}
+            <ComponentA>
+              <template v-slot:header="data">  
+                {{data}}
+                {{data.count}} - {{data.title}}
+                header - slot</template>
+              main
+              <template v-slot:footer>footer - slot</template>
+
+            </ComponentA>
+        </div>`,
+        data: {
+          msg: "hello world",
+          parentCount: "parentCount",
+        },
+      });
+
+      function foreach(array, callback) {
+        // array.forEach((item) => {
+        //   callback(item);
+        // });
+        // 复用逻辑
+        for (let index = 0; index < array.length; index++) {
+          const element = array[index];
+        }
+      }
+
+      // 遍历一个数组
+      const array = [1, 2, 3];
+      foreach(array, () => {
+        // 不同的逻辑 需要不同的处理
+      });
+    </script>
+  </body>
+</html>
