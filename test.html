@@ -1,39 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>测试</title>
-</head>
-<body>
-    <input type="text">
-        <div>123</div>
-    </input>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+        <!-- <h1>{{ msg }}</h1> -->
+        <!-- <component-a></component-a> -->
+    </div>
     <script>
-        let params = {
-            choosedNumber: 0,
-            userOrderBy:[],
-            dataConditions:[],
-            userConditions:null
-        }
-
-
-        let allDataBoolean = params.userOrderBy.length == 0 && params.dataConditions.length==0 && (params.userConditions == null || params.userConditions == 'undefined') && params.choosedNumber == 0;
-       console.log(allDataBoolean);
-
-
-       console.log(Number(12.8).toFixed(2));
-       console.log(Math.round(12.4));  //12
-       console.log(Math.round(12.5));   //13
-
-
-       let arr = [1,2,3,4];
-       let result = arr.reduce(function(prev,curr,arr){
-        return prev + curr
-       },10)
-       console.log(result);
-
+    //全局注册组件
+    Vue.component('ComponentA',{
+        components:{
+            ComponentB:{
+                template:`
+                    <div>
+                        <h1>我是局部注册的组件！！</h1>
+                    </div>
+                `
+            }
+        },
+        data(){
+            return{
+                count:0
+            }
+        },
+        methods: {
+            sum() {
+                this.count++;
+            }
+        },
+        template:`
+            <div>
+                <h1>{{ count }}</h1>
+                <button @click="sum">click</button>
+                <ComponentB />
+            </div>
+        `,
+    })
+    app = new Vue({
+        el: `#app`,
+        template:`
+            <ComponentA />
+           
+        `,
+        data: {
+            msg: "hello world",
+        },
+    });
     </script>
-</body>
+    <script>
+        var l = 1;
+        var n = m = 0;
+        function myFun(x){
+            return x = (x++) + 5;
+        }
+        n = myFun(1);
+
+
+        function anotherFun(x){
+            return x = (--x) + 5;
+        }
+        m = anotherFun(n);
+        alert(n);   //6
+        alert(m);   //10
+    </script>
+  </body>
 </html>
