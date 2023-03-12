@@ -1,72 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  </head>
-  <body>
-    <div id="app">
-        <!-- <h1>{{ msg }}</h1> -->
-        <!-- <component-a></component-a> -->
+    <style>
+        .box{
+            width: 400px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            vs code 插件 Rainbow Fart Waifu(程序员鼓励师) 配置教程123dassad
+            szymoney: 好像不能用了已经123dassad
+        </div>
     </div>
-    <script>
-    //全局注册组件
-    Vue.component('ComponentA',{
-        components:{
-            ComponentB:{
-                template:`
-                    <div>
-                        <h1>我是局部注册的组件！！</h1>
-                    </div>
-                `
-            }
-        },
-        data(){
-            return{
-                count:0
-            }
-        },
-        methods: {
-            sum() {
-                this.count++;
-            }
-        },
-        template:`
-            <div>
-                <h1>{{ count }}</h1>
-                <button @click="sum">click</button>
-                <ComponentB />
-            </div>
-        `,
-    })
-    app = new Vue({
-        el: `#app`,
-        template:`
-            <ComponentA />
-           
-        `,
-        data: {
-            msg: "hello world",
-        },
-    });
-    </script>
-    <script>
-        var l = 1;
-        var n = m = 0;
-        function myFun(x){
-            return x = (x++) + 5;
-        }
-        n = myFun(1);
+</body>
+<script>
+    function push(array,...items){
+        array.push(...items);
+    }
+
+    function add(x,y){
+        return x + y;
+    }
+
+    const numbers = [4,38];
+    add(...numbers);   
 
 
-        function anotherFun(x){
-            return x = (--x) + 5;
-        }
-        m = anotherFun(n);
-        alert(n);   //6
-        alert(m);   //10
-    </script>
-  </body>
+    function f(v,w,x,y,z){
+        console.log(v+w+x+y+z);
+    }
+    const args = [0,1];
+    f(-1,...args,2,...[3]);
+
+
+    const arr = [...(x > 0 ? ['a'] : []),'b'];
+</script>
 </html>

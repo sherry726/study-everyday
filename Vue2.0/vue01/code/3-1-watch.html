@@ -4,13 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <title>watch---函数形式</title>
+    <title>watch---对象形式</title>
   </head>
   <body>
     <div id="app">
-      <h1>{{ msg }}</h1>
-      <h1>{{ msg1 }}</h1>
-      <h1>{{ msg2 }}</h1>
+      <h1>{{msg}}</h1>
+      <h1>{{msg1}}</h1>
+      <h1>{{msg2}}</h1>
+      
     </div>
     <script>
         let vm = new Vue({
@@ -21,11 +22,13 @@
             msg2:'',
           },
           watch:{
-            msg(newVal,oldVal){
-              console.log(newVal,oldVal);
-              this.msg1 = this.msg + '01';
-              this.msg2 = this.msg + '02';
-            }
+           msg:{
+            handler(newVal,oldVal){
+              this.msg1 = newVal + '001';
+              this.msg2 = newVal + '002';
+            },
+            immediate:true
+           }
           },
         })
     </script>

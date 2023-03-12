@@ -4,27 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <title>watch---函数形式</title>
+    <title>watch---监听对象</title>
   </head>
   <body>
     <div id="app">
-      <h1>{{ msg }}</h1>
-      <h1>{{ msg1 }}</h1>
-      <h1>{{ msg2 }}</h1>
+     
+      <h1>{{info.name}}----{{info.age}}</h1>
+      <hr>
+      <h1>{{name}}</h1>
+      <h1>{{age}}</h1>
     </div>
     <script>
         let vm = new Vue({
           el:'#app',
           data:{
-            msg:'jira-software',
-            msg1:'',
-            msg2:'',
+            info:{
+              name:'lucy',
+              age:28
+            },
+            name:'',
+            age:''
           },
           watch:{
-            msg(newVal,oldVal){
-              console.log(newVal,oldVal);
-              this.msg1 = this.msg + '01';
-              this.msg2 = this.msg + '02';
+            'info.name':{
+                handler(newVal,oldVal){
+                  this.name = newVal + '---name';
+                },
+                deep:true
             }
           },
         })

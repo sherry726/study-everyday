@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>watch---监听对象</title>
+  </head>
+  <body>
+    <div id="app">
+     
+      <h1>{{info.name}}----{{info.age}}</h1>
+      <hr>
+      <h1>{{name}}</h1>
+      <h1>{{age}}</h1>
+    </div>
+    <script>
+        let vm = new Vue({
+          el:'#app',
+          data:{
+            info:{
+              name:'lucy',
+              age:28
+            },
+            name:'',
+            age:''
+          },
+          watch:{
+           info:{
+            handler(newVal,oldVal){
+              this.name = newVal.name + 'name';
+              this.age = newVal.age + 'age';
+            },
+            deep:true,
+            immediate:true
+           }
+          },
+        })
+    </script>
+  </body>
+</html>
