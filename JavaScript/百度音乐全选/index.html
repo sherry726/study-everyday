@@ -118,11 +118,12 @@
         //全选、全不选
         let checkAll = document.querySelector('#checkAll');
         checkAll.onclick = function(e){
-            if(e.target.checked){
-                data.forEach(item=>item.checked = true);
-            }else{
-                data.forEach(item=>item.checked = false);
-            }
+            // if(e.target.checked){
+            //     data.forEach(item=>item.checked = true);
+            // }else{
+            //     data.forEach(item=>item.checked = false);
+            // }
+            data.forEach(item=>item.checked = this.checked);
             render(data);
         }
 
