@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>正则表达式</title>
+</head>
+<body>
+    <h1>正则表达式</h1>
+</body>
+<script>
+//    元字符：有特殊含义的非字母字符；
+/*
+    1.字符相关；
+    2.数量相关；
+    3.位置相关；
+    4.括号相关；
+*/
+// 1.字符相关；
+//  \w \W \d \D \s \S .
+// \w :数字、字母、下划线；
+// let str = "~123fdfs";
+// let reg = /\w+/g;
+// console.log( reg.test(str));  //true
+
+// \W ：非数字、字母、下划线；
+// let str = "123fdfs";
+// let reg = /\W+/g;
+// console.log( reg.test(str));  //false
+
+// \s :匹配空格；uu
+// let str = "abcfdsadfs";
+// let reg = /\s+/g;
+// // let reg = /\S+/g;
+// console.log( reg.test(str));
+
+// . : 非 \n \r \u2028 \u2029;
+// let str = "\r";
+let str = `afb`
+let reg = /a.b/;
+console.log( reg.test(str));
+
+</script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>正则表达式</title>
+</head>
+<body>
+    <h1>正则表达式</h1>
+</body>
+<script>
+// () [] {};
+// ():分组
+// let str = "abababfdsafds";
+// let reg = /(ab){3}/g;
+// console.log(reg.test(str));  //true
+
+// // 提取值
+// let str = "2020-01-02";
+// // let reg = /\d{4}-\d{2}-\d{2}/;   //['2020-01-02', index: 0, input: '2020-01-02', groups: undefined]
+// let reg = /(\d{4})-(\d{2})-(\d{2})/;  //['2020-01-02', '2020', '01', '02', index: 0, input: '2020-01-02', groups: undefined]
+// let res = str.match(reg);
+// console.log(res);
+// console.log(RegExp.$1);   //2020
+// console.log(RegExp.$2);   //01
+// console.log(RegExp.$3);   //02
+
+// 替换
+// let str = "2020-01-02"; // 01/02/2020
+// let reg = /(\d{4})-(\d{2})-(\d{2})/;
+// // let res =  str.replace(reg,"$2/$3/$1");   //01/02/2020
+// let res =  str.replace(reg,function(arg,year,mouth,date){    //后面3个参数分别代表小括号里面的值
+//     console.log(arg);  //2020-01-02   匹配到的字符串
+//     return mouth +"/" + date + "/" +year;
+// });
+// console.log(res)
+
+
+// 反向引用
+// let className = "news-container-nav"; //news_container_nav
+// let reg = /\w{4}(-|_)\w{9}(\1)\w{3}/;  
+// let res =  reg.test(className);
+// console.log(res);
+
+
+// []:字符集合
+let str = "My name is LiL1ei";
+// let reg = /Li[Ll]ei/g;
+// [a-z] [A-Z];  [a-Z]
+// let reg = /[0-9]/g;
+// console.log( reg.test(str));
+let reg = /[^0-9]/g;    //^代表取反
+console.log( reg.test(str));
+// \d [0-9]; \w [a-zA-Z0-9_];
+
+
+
+
+
+</script>
+</html>

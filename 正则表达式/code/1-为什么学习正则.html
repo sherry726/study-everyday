@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>正则表达式</title>
+</head>
+<body>
+    <h1>正则表达式</h1>
+</body>
+<script>
+// 1.查找；2.替换；3.验证；4分割；
+let str = "afdsa234fda231dfsa111fdsaf444";
+//[234,231]
+// function getNumber(str){
+//     let arr = [];
+//     let temp = "";
+//     for(let i=0;i<str.length;i++){
+//         if(!isNaN(str[i])){
+//             // 数字
+//             temp += str[i];
+//         }else{
+//             if(temp!=="")
+//             arr.push(parseInt( temp ));
+//             temp = "";
+//         }
+//     }
+//     if(temp!=="")
+//         arr.push(parseInt( temp ));
+//     return arr;
+// }
+// console.log(getNumber(str));
+let reg = /\d+/g;
+let arr =  str.match(reg);
+console.log(arr);
+
+
+</script>
+</html>

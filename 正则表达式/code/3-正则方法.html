@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>正则的匹配方法</title>
+</head>
+<body>
+    <h1>正则的匹配方法</h1>
+</body>
+<script>
+//一、 正则对象底下方法；1.test 2.exec;
+// let str = "abc123fda123";
+// // let reg = /\d+/g;
+// let reg = /efg/g;
+// console.log( reg.test(str) );
+// let str = "abc123fda1234";
+// let reg = /\d+/g;
+// console.log( reg.exec(str) );  //['123', index: 3, input: 'abc123fda1234', groups: undefined]
+// console.log( reg.lastIndex);    //6,下一次匹配字符串的起始位置
+// console.log( reg.exec(str) );  //['1234', index: 9, input: 'abc123fda1234', groups: undefined]
+// console.log( reg.exec(str) );  //null
+// console.log( reg.lastIndex);    //0 
+// console.log( reg.exec(str) );  //['123', index: 3, input: 'abc123fda1234', groups: undefined]
+// 字符串方法；1.split 2.search; 3.match;4.replace;
+
+// let str = "abc123fda1234";
+// // let arr =  str.split(1);   // ['abc','23fda','234']
+// let arr =  str.split(/\d+/);   //['abc','fda','']
+// console.log(arr);
+
+// let str = "abcdefghiejk";
+// // let reg = /e/g;    //4
+// let reg = /z/;   //-1
+// console.log( str.search(reg) );
+
+// let str = "abc11defghiej222k";
+// // let reg = /\d+/;   //['11', index: 3, input: 'abc11defghiej222k', groups: undefined]
+// let reg = /\d+/g;   // ['11', '222']
+// console.log( str.match(reg) );
+
+
+let str = "abc11defghiej222k";
+let reg = /\d/g;
+console.log( str.replace(reg,"*") );  //abc**defghiej***k
+
+let res =  str.replace(reg,function(arg){
+    console.log(arg);   //匹配到的字符串:1 1 2 2 2
+    return "*"
+})
+console.log(res);  //abc**defghiej***k
+
+</script>
+</html>

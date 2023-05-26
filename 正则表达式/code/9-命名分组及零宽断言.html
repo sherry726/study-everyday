@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+   
+</body>
+<script>
+// 命名分组；
+// let str = "2020-01-06";
+// let reg = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/;
+// console.log( str.match(reg));
+
+
+// 零宽断言；
+// 正向零宽断言；
+// let str = "iphone3iphone4iphone5iphonenumber";
+// 肯定
+// let reg = /iphone(?=\d)/g;
+// 否定
+// let reg = /iphone(?!\d)/g;
+// let res = str.replace(reg,"苹果");
+// console.log(res);
+
+// 负向零宽断言；
+let str = '10px20px30pxipx';
+// 肯定
+// let reg = /(?<=\d+)px/g;
+// 否定
+let reg = /(?<!\d+)px/g;
+let res =  str.replace(reg,"像素");
+console.log(res);
+
+</script>
+</html>
