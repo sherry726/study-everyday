@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var formsonsFieldInfo = [
+        {
+            "tableName": "formson_0167",
+            "frontTableName": "front_formson_1",
+            "display": "库存明细",
+            "fieldInfo": {
+                "field0031": {
+                    "name": "field0031",
+                    "display": "L1.4累计出库量",
+                    "fieldType": "DECIMAL",
+                    "inputType": "text",
+                    "placeHolder": "",
+                    "desc": "",
+                    "formatType": "##,###,###0",
+                    "fieldLength": "12",
+                    "digitNum": "0",
+                    "isInCalculate": "1",
+                    "isAttachment": "0",
+                    "enums": null,
+                    "isCustomField": "0",
+                    "customFieldInfo": null,
+                    "relationInfo": null,
+                    "extend": {},
+                    "recycleSerial": null,
+                    "isRecycle": null
+                },
+                "field0032": {
+                    "name": "field0032",
+                    "display": "L1.5当前库存量",
+                    "fieldType": "DECIMAL",
+                    "inputType": "text",
+                    "placeHolder": "",
+                    "desc": "",
+                    "formatType": "##,###,###0",
+                    "fieldLength": "12",
+                    "digitNum": "0",
+                    "isInCalculate": "1",
+                    "isAttachment": "0",
+                    "enums": null,
+                    "isCustomField": "0",
+                    "customFieldInfo": null,
+                    "relationInfo": null,
+                    "extend": {},
+                    "recycleSerial": null,
+                    "isRecycle": null
+                },
+                "field0033": {
+                    "name": "field0033",
+                    "display": "L1.6平均单价",
+                    "fieldType": "DECIMAL",
+                    "inputType": "text",
+                    "placeHolder": "",
+                    "desc": "",
+                    "formatType": "##,###,###0",
+                    "fieldLength": "12",
+                    "digitNum": "2",
+                    "isInCalculate": "1",
+                    "isAttachment": "0",
+                    "enums": null,
+                    "isCustomField": "0",
+                    "customFieldInfo": null,
+                    "relationInfo": null,
+                    "extend": {},
+                    "recycleSerial": null,
+                    "isRecycle": null
+                },
+                "field0034": {
+                    "name": "field0034",
+                    "display": "L1.7存货成本",
+                    "fieldType": "DECIMAL",
+                    "inputType": "text",
+                    "placeHolder": "",
+                    "desc": "",
+                    "formatType": "##,###,###0",
+                    "fieldLength": "12",
+                    "digitNum": "2",
+                    "isInCalculate": "0",
+                    "isAttachment": "0",
+                    "enums": null,
+                    "isCustomField": "0",
+                    "customFieldInfo": null,
+                    "relationInfo": null,
+                    "extend": {},
+                    "recycleSerial": null,
+                    "isRecycle": null
+                },
+                "field0035": {
+                    "name": "field0035",
+                    "display": "L1.9备注",
+                    "fieldType": "VARCHAR",
+                    "inputType": "text",
+                    "placeHolder": "",
+                    "desc": "",
+                    "formatType": "",
+                    "fieldLength": "100",
+                    "digitNum": "0",
+                    "isInCalculate": "0",
+                    "isAttachment": "0",
+                    "enums": null,
+                    "isCustomField": "0",
+                    "customFieldInfo": null,
+                    "relationInfo": null,
+                    "extend": {},
+                    "recycleSerial": null,
+                    "isRecycle": null
+                },
+                "field0027": {
+                    "name": "field0027",
+                    "display": "L1.0序号",
+                    "fieldType": "DECIMAL",
+                    "inputType": "linenumber",
+                    "placeHolder": "",
+                    "desc": "",
+                    "formatType": "",
+                    "fieldLength": "20",
+                    "digitNum": "0",
+                    "isInCalculate": "0",
+                    "isAttachment": "0",
+                    "enums": null,
+                    "isCustomField": "0",
+                    "customFieldInfo": null,
+                    "relationInfo": null,
+                    "extend": {},
+                    "recycleSerial": null,
+                    "isRecycle": null
+                },
+                "field0028": {
+                    "name": "field0028",
+                    "display": "L1.1仓库名称",
+                    "fieldType": "VARCHAR",
+                    "inputType": "text",
+                    "placeHolder": "",
+                    "desc": "",
+                    "formatType": "",
+                    "fieldLength": "100",
+                    "digitNum": "0",
+                    "isInCalculate": "0",
+                    "isAttachment": "0",
+                    "enums": null,
+                    "isCustomField": "0",
+                    "customFieldInfo": null,
+                    "relationInfo": null,
+                    "extend": {},
+                    "recycleSerial": null,
+                    "isRecycle": null
+                },
+                "field0029": {
+                    "name": "field0029",
+                    "display": "L1.2初始数量",
+                    "fieldType": "DECIMAL",
+                    "inputType": "text",
+                    "placeHolder": "",
+                    "desc": "",
+                    "formatType": "##,###,###0",
+                    "fieldLength": "12",
+                    "digitNum": "0",
+                    "isInCalculate": "1",
+                    "isAttachment": "0",
+                    "enums": null,
+                    "isCustomField": "0",
+                    "customFieldInfo": null,
+                    "relationInfo": null,
+                    "extend": {},
+                    "recycleSerial": null,
+                    "isRecycle": null
+                },
+                "field0050": {
+                    "name": "field0050",
+                    "display": "L1.8库管人员",
+                    "fieldType": "VARCHAR",
+                    "inputType": "multimember",
+                    "placeHolder": "",
+                    "desc": "",
+                    "formatType": "",
+                    "fieldLength": "4000",
+                    "digitNum": "0",
+                    "isInCalculate": "0",
+                    "isAttachment": "0",
+                    "enums": null,
+                    "isCustomField": "0",
+                    "customFieldInfo": null,
+                    "relationInfo": null,
+                    "extend": {},
+                    "recycleSerial": null,
+                    "isRecycle": null
+                },
+                "field0030": {
+                    "name": "field0030",
+                    "display": "L1.3累计入库量",
+                    "fieldType": "DECIMAL",
+                    "inputType": "text",
+                    "placeHolder": "",
+                    "desc": "",
+                    "formatType": "##,###,###0",
+                    "fieldLength": "12",
+                    "digitNum": "0",
+                    "isInCalculate": "1",
+                    "isAttachment": "0",
+                    "enums": null,
+                    "isCustomField": "0",
+                    "customFieldInfo": null,
+                    "relationInfo": null,
+                    "extend": {},
+                    "recycleSerial": null,
+                    "isRecycle": null
+                }
+            },
+            "dataSubLineInfos": null,
+            "tableButton": [
+                {
+                    "color": "#1F85EC",
+                    "name": "新建",
+                    "icon": "cap-icon-jiahao",
+                    "alias": "add",
+                    "type": "11"
+                },
+                {
+                    "color": "#FF5E5E",
+                    "name": "删除",
+                    "icon": "cap-icon-shanchu",
+                    "alias": "delete",
+                    "type": "13"
+                },
+                {
+                    "color": "#FF5E5E",
+                    "name": "删除全部",
+                    "icon": "cap-icon-shanchuquanbu",
+                    "alias": "delete_all",
+                    "type": "14"
+                },
+                {
+                    "color": "#45BE85",
+                    "name": "导入数据",
+                    "icon": "cap-icon-import",
+                    "alias": "import_excel",
+                    "type": "15"
+                }
+            ],
+            "tableAuth": {
+                "add": "1",
+                "import_excel": "1",
+                "delete": "1",
+                "delete_all": "1"
+            },
+            "pageData": {
+                "page": "1",
+                "pageSize": "20",
+                "pageCount": "1",
+                "totalSize": "1",
+                "items": [
+                    {
+                        "recordId": "3079175729267492487",
+                        "field0031": {
+                            "value": "",
+                            "showValue": "",
+                            "showValue2": "",
+                            "relationData": null,
+                            "relationInfo": null,
+                            "triggerData": {},
+                            "enums": null,
+                            "attachmentInfo": null,
+                            "isNotNull": "0",
+                            "isFileDownload": null,
+                            "auth": "edit",
+                            "originalAuth": null,
+                            "fieldStyle": null
+                        },
+                        "field0032": {
+                            "value": "0",
+                            "showValue": "0",
+                            "showValue2": "0",
+                            "relationData": null,
+                            "relationInfo": null,
+                            "triggerData": {},
+                            "enums": null,
+                            "attachmentInfo": null,
+                            "isNotNull": "0",
+                            "isFileDownload": null,
+                            "auth": "browse",
+                            "originalAuth": null,
+                            "fieldStyle": null
+                        },
+                        "field0033": {
+                            "value": "",
+                            "showValue": "",
+                            "showValue2": "",
+                            "relationData": null,
+                            "relationInfo": null,
+                            "triggerData": {},
+                            "enums": null,
+                            "attachmentInfo": null,
+                            "isNotNull": "0",
+                            "isFileDownload": null,
+                            "auth": "edit",
+                            "originalAuth": null,
+                            "fieldStyle": null
+                        },
+                        "field0034": {
+                            "value": "0",
+                            "showValue": "0.00",
+                            "showValue2": "0.00",
+                            "relationData": null,
+                            "relationInfo": null,
+                            "triggerData": {},
+                            "enums": null,
+                            "attachmentInfo": null,
+                            "isNotNull": "0",
+                            "isFileDownload": null,
+                            "auth": "browse",
+                            "originalAuth": null,
+                            "fieldStyle": null
+                        },
+                        "field0035": {
+                            "value": "",
+                            "showValue": "",
+                            "showValue2": "",
+                            "relationData": null,
+                            "relationInfo": null,
+                            "triggerData": {},
+                            "enums": null,
+                            "attachmentInfo": null,
+                            "isNotNull": "0",
+                            "isFileDownload": null,
+                            "auth": "edit",
+                            "originalAuth": null,
+                            "fieldStyle": null
+                        },
+                        "groupSort": 1,
+                        "field0027": {
+                            "value": "1",
+                            "showValue": "1",
+                            "showValue2": "1",
+                            "relationData": null,
+                            "relationInfo": null,
+                            "triggerData": {},
+                            "enums": null,
+                            "attachmentInfo": null,
+                            "isNotNull": "0",
+                            "isFileDownload": null,
+                            "auth": "browse",
+                            "originalAuth": null,
+                            "fieldStyle": null
+                        },
+                        "field0028": {
+                            "value": "",
+                            "showValue": "",
+                            "showValue2": "",
+                            "relationData": null,
+                            "relationInfo": null,
+                            "triggerData": {},
+                            "enums": null,
+                            "attachmentInfo": null,
+                            "isNotNull": "0",
+                            "isFileDownload": null,
+                            "auth": "edit",
+                            "originalAuth": null,
+                            "fieldStyle": null
+                        },
+                        "field0029": {
+                            "value": "",
+                            "showValue": "",
+                            "showValue2": "",
+                            "relationData": null,
+                            "relationInfo": null,
+                            "triggerData": {},
+                            "enums": null,
+                            "attachmentInfo": null,
+                            "isNotNull": "0",
+                            "isFileDownload": null,
+                            "auth": "edit",
+                            "originalAuth": null,
+                            "fieldStyle": null
+                        },
+                        "field0050": {
+                            "value": "",
+                            "showValue": "",
+                            "showValue2": "",
+                            "relationData": null,
+                            "relationInfo": null,
+                            "triggerData": {},
+                            "enums": null,
+                            "attachmentInfo": null,
+                            "isNotNull": "0",
+                            "isFileDownload": null,
+                            "auth": "edit",
+                            "originalAuth": null,
+                            "fieldStyle": null
+                        },
+                        "field0030": {
+                            "value": "",
+                            "showValue": "",
+                            "showValue2": "",
+                            "relationData": null,
+                            "relationInfo": null,
+                            "triggerData": {},
+                            "enums": null,
+                            "attachmentInfo": null,
+                            "isNotNull": "0",
+                            "isFileDownload": null,
+                            "auth": "edit",
+                            "originalAuth": null,
+                            "fieldStyle": null
+                        }
+                    }
+                ]
+            },
+            "pageSize": "20",
+            "allLines": null,
+            "tableFilterSet": [],
+            "buttonStyle": {},
+            "type": "formson-table"
+        },
+        {
+            "tableName": "formson_0168",
+            "frontTableName": "front_formson_2",
+            "display": "附件明细",
+            "fieldInfo": {
+                "field0036": {
+                    "name": "field0036",
+                    "display": "L2.0序号",
+                    "fieldType": "DECIMAL",
+                    "inputType": "linenumber",
+                    "placeHolder": "",
+                    "desc": "",
+                    "formatType": "",
+                    "fieldLength": "20",
+                    "digitNum": "0",
+                    "isInCalculate": "0",
+                    "isAttachment": "0",
+                    "enums": null,
+                    "isCustomField": "0",
+                    "customFieldInfo": null,
+                    "relationInfo": null,
+                    "extend": {},
+                    "recycleSerial": null,
+                    "isRecycle": null
+                },
+                "field0037": {
+                    "name": "field0037",
+                    "display": "L2.1上传日期",
+                    "fieldType": "TIMESTAMP",
+                    "inputType": "date",
+                    "placeHolder": "",
+                    "desc": "",
+                    "formatType": "",
+                    "fieldLength": "255",
+                    "digitNum": "0",
+                    "isInCalculate": "0",
+                    "isAttachment": "0",
+                    "enums": null,
+                    "isCustomField": "0",
+                    "customFieldInfo": null,
+                    "relationInfo": null,
+                    "extend": {},
+                    "recycleSerial": null,
+                    "isRecycle": null
+                },
+                "field0038": {
+                    "name": "field0038",
+                    "display": "L2.2上传人",
+                    "fieldType": "VARCHAR",
+                    "inputType": "member",
+                    "placeHolder": "",
+                    "desc": "",
+                    "formatType": "",
+                    "fieldLength": "20",
+                    "digitNum": "0",
+                    "isInCalculate": "0",
+                    "isAttachment": "0",
+                    "enums": null,
+                    "isCustomField": "0",
+                    "customFieldInfo": null,
+                    "relationInfo": null,
+                    "extend": {},
+                    "recycleSerial": null,
+                    "isRecycle": null
+                },
+                "field0039": {
+                    "name": "field0039",
+                    "display": "L2.3附件名称",
+                    "fieldType": "VARCHAR",
+                    "inputType": "text",
+                    "placeHolder": "",
+                    "desc": "",
+                    "formatType": "",
+                    "fieldLength": "100",
+                    "digitNum": "0",
+                    "isInCalculate": "0",
+                    "isAttachment": "0",
+                    "enums": null,
+                    "isCustomField": "0",
+                    "customFieldInfo": null,
+                    "relationInfo": null,
+                    "extend": {},
+                    "recycleSerial": null,
+                    "isRecycle": null
+                },
+                "field0040": {
+                    "name": "field0040",
+                    "display": "L2.4附件文档",
+                    "fieldType": "VARCHAR",
+                    "inputType": "attachment",
+                    "placeHolder": "",
+                    "desc": "",
+                    "formatType": "",
+                    "fieldLength": "20",
+                    "digitNum": "0",
+                    "isInCalculate": "0",
+                    "isAttachment": "1",
+                    "enums": null,
+                    "isCustomField": "0",
+                    "customFieldInfo": null,
+                    "relationInfo": null,
+                    "extend": {},
+                    "recycleSerial": null,
+                    "isRecycle": null
+                },
+                "field0041": {
+                    "name": "field0041",
+                    "display": "L2.9备注",
+                    "fieldType": "VARCHAR",
+                    "inputType": "text",
+                    "placeHolder": "",
+                    "desc": "",
+                    "formatType": "",
+                    "fieldLength": "100",
+                    "digitNum": "0",
+                    "isInCalculate": "0",
+                    "isAttachment": "0",
+                    "enums": null,
+                    "isCustomField": "0",
+                    "customFieldInfo": null,
+                    "relationInfo": null,
+                    "extend": {},
+                    "recycleSerial": null,
+                    "isRecycle": null
+                }
+            },
+            "dataSubLineInfos": null,
+            "tableButton": [
+                {
+                    "color": "#1F85EC",
+                    "name": "新建",
+                    "icon": "cap-icon-jiahao",
+                    "alias": "add",
+                    "type": "11"
+                },
+                {
+                    "color": "#FF5E5E",
+                    "name": "删除",
+                    "icon": "cap-icon-shanchu",
+                    "alias": "delete",
+                    "type": "13"
+                },
+                {
+                    "color": "#FF5E5E",
+                    "name": "删除全部",
+                    "icon": "cap-icon-shanchuquanbu",
+                    "alias": "delete_all",
+                    "type": "14"
+                }
+            ],
+            "tableAuth": {
+                "add": "1",
+                "delete": "1",
+                "delete_all": "1"
+            },
+            "pageData": {
+                "page": "1",
+                "pageSize": "20",
+                "pageCount": "1",
+                "totalSize": "1",
+                "items": [
+                    {
+                        "recordId": "-4819487702866703539",
+                        "field0036": {
+                            "value": "1",
+                            "showValue": "1",
+                            "showValue2": "1",
+                            "relationData": null,
+                            "relationInfo": null,
+                            "triggerData": {},
+                            "enums": null,
+                            "attachmentInfo": null,
+                            "isNotNull": "0",
+                            "isFileDownload": null,
+                            "auth": "browse",
+                            "originalAuth": null,
+                            "fieldStyle": null
+                        },
+                        "groupSort": 1,
+                        "field0037": {
+                            "value": "",
+                            "showValue": "",
+                            "showValue2": "",
+                            "relationData": null,
+                            "relationInfo": null,
+                            "triggerData": {},
+                            "enums": null,
+                            "attachmentInfo": null,
+                            "isNotNull": "0",
+                            "isFileDownload": null,
+                            "auth": "edit",
+                            "originalAuth": null,
+                            "fieldStyle": null
+                        },
+                        "field0038": {
+                            "value": "",
+                            "showValue": "",
+                            "showValue2": "",
+                            "relationData": null,
+                            "relationInfo": null,
+                            "triggerData": {},
+                            "enums": null,
+                            "attachmentInfo": null,
+                            "isNotNull": "0",
+                            "isFileDownload": null,
+                            "auth": "edit",
+                            "originalAuth": null,
+                            "fieldStyle": null
+                        },
+                        "field0039": {
+                            "value": "",
+                            "showValue": "",
+                            "showValue2": "",
+                            "relationData": null,
+                            "relationInfo": null,
+                            "triggerData": {},
+                            "enums": null,
+                            "attachmentInfo": null,
+                            "isNotNull": "0",
+                            "isFileDownload": null,
+                            "auth": "edit",
+                            "originalAuth": null,
+                            "fieldStyle": null
+                        },
+                        "field0040": {
+                            "value": "",
+                            "showValue": "",
+                            "showValue2": "",
+                            "relationData": null,
+                            "relationInfo": null,
+                            "triggerData": {},
+                            "enums": null,
+                            "attachmentInfo": {
+                                "baseAttachmentInfo": {
+                                    "reference": "-8002209108791767378",
+                                    "minAttachment": "0",
+                                    "attachAdvanceSet": null,
+                                    "subReference": "-1655165406790990562",
+                                    "officeOcx": "1",
+                                    "maxImgSize": "1000",
+                                    "maxAttachments": "1000",
+                                    "mimeType": "application/octet-stream",
+                                    "category": "66",
+                                    "type": "0",
+                                    "templateUrl": null
+                                },
+                                "attachmentInfos": []
+                            },
+                            "isNotNull": "0",
+                            "isFileDownload": "1",
+                            "auth": "edit",
+                            "originalAuth": null,
+                            "fieldStyle": null
+                        },
+                        "field0041": {
+                            "value": "",
+                            "showValue": "",
+                            "showValue2": "",
+                            "relationData": null,
+                            "relationInfo": null,
+                            "triggerData": {},
+                            "enums": null,
+                            "attachmentInfo": null,
+                            "isNotNull": "0",
+                            "isFileDownload": null,
+                            "auth": "edit",
+                            "originalAuth": null,
+                            "fieldStyle": null
+                        }
+                    }
+                ]
+            },
+            "pageSize": "20",
+            "allLines": null,
+            "tableFilterSet": [],
+            "buttonStyle": {},
+            "type": "formson-table"
+        },
+        {
+            "tableName": "formson_0190",
+            "frontTableName": "front_formson_4",
+            "display": "明细表1",
+            "fieldInfo": {
+                "field0070": {
+                    "name": "field0070",
+                    "display": "文本1",
+                    "fieldType": "VARCHAR",
+                    "inputType": "text",
+                    "placeHolder": "",
+                    "desc": "",
+                    "formatType": "",
+                    "fieldLength": "100",
+                    "digitNum": "0",
+                    "isInCalculate": "0",
+                    "isAttachment": "0",
+                    "enums": null,
+                    "isCustomField": "0",
+                    "customFieldInfo": null,
+                    "relationInfo": [
+                        {
+                            "fillInRow": "0",
+                            "buttonName": "文本1",
+                            "relationShipId": "155834238788977580",
+                            "mainSelector": "",
+                            "fieldInfo": "field0070",
+                            "mainSelectorDisplay": "",
+                            "toVersion": "default_form"
+                        }
+                    ],
+                    "extend": {},
+                    "recycleSerial": null,
+                    "isRecycle": null
+                },
+                "field0072": {
+                    "name": "field0072",
+                    "display": "文本2",
+                    "fieldType": "VARCHAR",
+                    "inputType": "text",
+                    "placeHolder": "",
+                    "desc": "",
+                    "formatType": "",
+                    "fieldLength": "100",
+                    "digitNum": "0",
+                    "isInCalculate": "0",
+                    "isAttachment": "0",
+                    "enums": null,
+                    "isCustomField": "0",
+                    "customFieldInfo": null,
+                    "relationInfo": null,
+                    "extend": {},
+                    "recycleSerial": null,
+                    "isRecycle": null
+                }
+            },
+            "dataSubLineInfos": null,
+            "tableButton": [
+                {
+                    "color": "#1F85EC",
+                    "name": "新建",
+                    "icon": "cap-icon-jiahao",
+                    "alias": "add",
+                    "type": "11"
+                },
+                {
+                    "color": "#1F85EC",
+                    "name": "复制",
+                    "icon": "cap-icon-fuzhi",
+                    "alias": "copy",
+                    "type": "12"
+                },
+                {
+                    "color": "#FF5E5E",
+                    "name": "删除",
+                    "icon": "cap-icon-shanchu",
+                    "alias": "delete",
+                    "type": "13"
+                },
+                {
+                    "color": "#FF5E5E",
+                    "name": "删除全部",
+                    "icon": "cap-icon-shanchuquanbu",
+                    "alias": "delete_all",
+                    "type": "14"
+                },
+                {
+                    "color": "#45BE85",
+                    "name": "导入数据",
+                    "icon": "cap-icon-import",
+                    "alias": "import_excel",
+                    "type": "15"
+                }
+            ],
+            "tableAuth": {
+                "add": "1",
+                "import_excel": "1",
+                "copy": "1",
+                "delete": "1",
+                "delete_all": "1"
+            },
+            "pageData": {
+                "page": "1",
+                "pageSize": "20",
+                "pageCount": "1",
+                "totalSize": "1",
+                "items": [
+                    {
+                        "recordId": "-990473150074304841",
+                        "groupSort": 1,
+                        "field0070": {
+                            "value": "",
+                            "showValue": "",
+                            "showValue2": "",
+                            "relationData": {
+                                "imgShow": "1",
+                                "viewThrough": "0"
+                            },
+                            "relationInfo": [
+                                {
+                                    "fillInRow": "0",
+                                    "buttonName": "文本1",
+                                    "relationShipId": "155834238788977580",
+                                    "mainSelector": "",
+                                    "fieldInfo": "field0070",
+                                    "mainSelectorDisplay": "",
+                                    "toVersion": "default_form"
+                                }
+                            ],
+                            "triggerData": {},
+                            "enums": null,
+                            "attachmentInfo": null,
+                            "isNotNull": "0",
+                            "isFileDownload": null,
+                            "auth": "browse",
+                            "originalAuth": "edit",
+                            "fieldStyle": null
+                        },
+                        "field0072": {
+                            "value": "",
+                            "showValue": "",
+                            "showValue2": "",
+                            "relationData": null,
+                            "relationInfo": null,
+                            "triggerData": {},
+                            "enums": null,
+                            "attachmentInfo": null,
+                            "isNotNull": "0",
+                            "isFileDownload": null,
+                            "auth": "edit",
+                            "originalAuth": null,
+                            "fieldStyle": null
+                        }
+                    }
+                ]
+            },
+            "pageSize": "20",
+            "allLines": null,
+            "tableFilterSet": [],
+            "buttonStyle": {},
+            "type": "formson-table"
+        }
+    ]
+    var formsonFieldObj = {}
+    for (var i = 0; i < formsonsFieldInfo.length; i++) {
+        formsonFieldObj[formsonsFieldInfo[i].tableName] = formsonsFieldInfo[i].fieldInfo;
+    }
+    console.log("testObj", formsonFieldObj);
+
+
+
+
+
+    {
+        "conditionForm": { 
+            "condition": { 
+                "elementSubject": "aa" 
+            }, 
+            "resourceId": "6587983644495202805", 
+            "statTitle": "公文-发文待办" 
+        },
+        "columnDomain": [
+            { "display": "序号", "name": "myIndex", "width": "150.797" }, 
+            { "display": "标题", "name": "elementSubject", "width": "287.297" }, 
+            { "display": "发起人", "name": "startUsername", "width": "215.297" }, 
+            { "display": "发起时间", "name": "createTime", "width": "252.297" }, 
+            { "display": "上一步处理人", "name": "preUsername", "width": "330.297" },
+             { "display": "处理类型", "name": "summaryExtChuLiLeiXing", "width": "330.297" }, 
+             { "display": "收文类型", "name": "summaryExtShouWenType", "width": "330.297" }]
+    }
+</script>
+
+</html>
